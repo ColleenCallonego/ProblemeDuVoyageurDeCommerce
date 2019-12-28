@@ -1,4 +1,5 @@
 package Fichier;
+import Ville.Matrice;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,7 +9,7 @@ import org.json.*;
 
 public class Lecture {
     
-    public static void creationMatrice() throws FileNotFoundException, IOException{
+    public static Matrice creationMatrice() throws FileNotFoundException, IOException{
         //Ouverture du fichier json 
         FileInputStream f = new FileInputStream("Villes.json");
         String json = new String();
@@ -29,7 +30,6 @@ public class Lecture {
         }
         //Création de la matrice des distances
         Integer[][] matrice = creerMatrice(villes.size());
-        System.out.println(villes);
         a = o.names();
         while (!a.isEmpty()){
             String key = a.getString(0);
@@ -42,16 +42,12 @@ public class Lecture {
                 a2.remove(0);
                 int pos1 = villes.indexOf(key);
                 int pos2 = villes.indexOf(key2);
-                int distance = jo2.getInt(key2);
-                ajoutDistance(matrice, pos1, pos2, distance);
+                int dist = jo2.getInt(key2);
+                ajoutDistance(matrice, pos1, pos2, dist);
             }
         }
-        for (int j = 0; j < villes.size(); j++){
-            for (int k = 0; k < villes.size(); k++){
-                System.out.print(matrice[j][k] + "  ");
-            }
-            System.out.println("");
-        }
+        Matrice distance = new Matrice(matrice, villes);
+        return distance;
     }
     
     public static Integer[][] creerMatrice(int taille){
