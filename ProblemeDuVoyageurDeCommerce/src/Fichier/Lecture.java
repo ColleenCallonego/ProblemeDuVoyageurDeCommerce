@@ -7,8 +7,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import org.json.*;
 
+/**
+ *Classe pour lire et stocker toutes les informations contenues dans le fichier.
+ * 
+ */
 public class Lecture {
     
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public static Matrice creationMatrice() throws FileNotFoundException, IOException{
         //Ouverture du fichier json 
         FileInputStream f = new FileInputStream("Villes.json");
@@ -50,6 +60,11 @@ public class Lecture {
         return distance;
     }
     
+    /**
+     *Méthode pour créer la matrice/le tableau des distances
+     * @param taille Nombre de ville contenue dans le fichier.
+     * @return Le tableau/matrice créé(e).
+     */
     public static Integer[][] creerMatrice(int taille){
         Integer[][] matrice = new Integer[taille][taille];
         for (int i = 0; i < taille; i++){
@@ -59,6 +74,14 @@ public class Lecture {
         return matrice;
     }
     
+    /**
+     *Méthode pour ajouter une distance entre deux villes dans 
+     * le tableau/matrice.
+     * @param mat Tableau/matrice où il faut ajouter une distance.
+     * @param i Position de la première ville.
+     * @param j Position de la seconde ville.
+     * @param dis Distance entre les deux villes.
+     */
     public static void ajoutDistance(Integer mat[][], Integer i, Integer j, Integer dis){
     //Ajout de la distance entre deux villes, de façon sysmétrique
         mat[i][j] = dis;
