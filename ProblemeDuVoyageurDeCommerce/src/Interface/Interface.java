@@ -5,10 +5,8 @@
  */
 package Interface;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -22,32 +20,50 @@ import javax.swing.JPanel;
 public class Interface extends JPanel{
     
     public static void main(String[] args) {
-    //initialisation de la frame et des panels
+        
+    //initialisation de la framePrincipale
     JFrame framePricipale = new JFrame("Problème du voyageur de commerce");
+    framePricipale.setResizable(false);
+    framePricipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    framePricipale.setSize(1800, 1000);
+    framePricipale.setLocationRelativeTo(null);
+    
+    //initialisation du panelParametrage
     JPanel panelParametrage = new JPanel();
-    panelParametrage.setSize(400, 800);
+    panelParametrage.setLayout(new GridLayout(4,1));
+    
+    //initialisation des éléments dans panelParametrage
     JLabel labelParametrage = new JLabel("Paramètres et Stratégies");
     JPanel panelParametres = new JPanel ();
-    JLabel labelParametres = new JLabel ("Paramètres");
+        //initialisation du panelParametres
+        JLabel labelParametres = new JLabel ("Paramètres");
+        //String[] villes = recupeVilles();
+        //JComboBox choixVillesDepart = new JComboBox(villes);
+        //JComboBox choixVillesRetour = new JComboBox(villes);
+        
     JPanel panelStrategies = new JPanel ();
-    JLabel labelStrategies = new JLabel ("Stratégies");
-    JPanel panelLancement = new JPanel ();
-    JPanel panelCourbeFitness = new JPanel();
-    panelCourbeFitness.setSize(1200, 800);
-    JLabel labelCourbeFitness = new JLabel("Courbe de Fitness");
+        //initialisation du panelStrategies
+        JLabel labelStrategies = new JLabel ("Stratégies");
+        panelStrategies.setLayout(new GridLayout(4,1));
+        //comboBox des differentes strategies
+        String[] stratSelection = new String[]{"Stratégie de Selection","Elitiste","Tournoi"};
+        JComboBox choixStratSelection = new JComboBox(stratSelection);
+        String[] stratRecombinaison = new String[]{"Stratégie de recombinaison","Simple","Enjambement"};
+        JComboBox choixStratRecombinaison = new JComboBox(stratRecombinaison);
+        String[] tempsCalcul = new String[]{"Temps de calcul","Par génération","Par seconde"};
+        JComboBox choixTempsCalcul = new JComboBox(tempsCalcul);
+        
     JButton boutonLancer = new JButton("Lancer");
-    panelParametrage.setLayout(new BoxLayout(panelParametrage,BoxLayout.Y_AXIS));
-    panelStrategies.setLayout(new BoxLayout(panelStrategies,BoxLayout.Y_AXIS));
-    panelCourbeFitness.setLayout(new FlowLayout());
-    //les différentes comboBox pour les choix de paramètres
-    //String[] villes = recupeVilles();
-    //JComboBox choixVilles = new JComboBox(villes);
-    String[] stratSelection = new String[]{"Stratégie de Selection","Elitiste","Tournoi"};
-    JComboBox choixStratSelection = new JComboBox(stratSelection);
-    String[] stratRecombinaison = new String[]{"Stratégie de recombinaison","Simple","Enjambement"};
-    JComboBox choixStratRecombinaison = new JComboBox(stratRecombinaison);
-    String[] tempsCalcul = new String[]{"Temps de calcul","Par génération","Par seconde"};
-    JComboBox choixTempsCalcul = new JComboBox(tempsCalcul);
+    
+    
+    
+    //initialisation panelCourbeFitness
+    JPanel panelCourbeFitness = new JPanel();
+    //panelCourbeFitness.setLayout(new FlowLayout());
+    
+    //initialisation des éléments dans panelCourbeFitness
+    JLabel labelCourbeFitness = new JLabel("Courbe de Fitness");
+    
     
 
     //colorisation des panel
@@ -55,34 +71,31 @@ public class Interface extends JPanel{
     panelCourbeFitness.setBackground(Color.RED);
     panelParametres.setBackground(Color.CYAN);
     panelStrategies.setBackground(Color.GRAY);
-    panelLancement.setBackground(Color.LIGHT_GRAY);
     
+    //encapsulation
+    panelParametrage.add(labelParametrage);
+    panelParametrage.add(panelParametres);
+    panelParametrage.add(panelStrategies);
+    panelParametrage.add(boutonLancer);
     
+    panelCourbeFitness.add(labelCourbeFitness);
     
     panelParametres.add(labelParametres);
+    //panelParametres.add(choixVillesDepart);
+    //panelParametres.add(choixVillesRetour);
     
     panelStrategies.add(labelStrategies);
     panelStrategies.add(choixStratSelection);
     panelStrategies.add(choixStratRecombinaison);
     panelStrategies.add(choixTempsCalcul);
     
-    panelLancement.add(boutonLancer);
-    //panelParametrage.add(choixVilles);
-    panelParametrage.add(labelParametrage);
-    panelParametrage.add(panelParametres);
-    panelParametrage.add(panelStrategies);
-    panelParametrage.add(panelLancement);
-    panelCourbeFitness.add(labelCourbeFitness);
+    //encapsulation des éléments de la frame principale
+    framePricipale.setLayout(null);
+    panelParametrage.setBounds(0, 0, 400, 961);
+    panelCourbeFitness.setBounds(400, 0, 1394, 961);
+    framePricipale.add(panelParametrage);
+    framePricipale.add(panelCourbeFitness);
     
-    //taille des panels
-    
-    
-    //encapsulation des des panels dans la frame principale
-    framePricipale.setLayout(new BorderLayout());
-    framePricipale.add(panelParametrage,BorderLayout.WEST);
-    framePricipale.add(panelCourbeFitness,BorderLayout.CENTER);
-    framePricipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    framePricipale.setSize(1600, 800);
     framePricipale.setVisible(true);
     }
 }
