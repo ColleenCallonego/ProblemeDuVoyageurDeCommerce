@@ -1,6 +1,7 @@
 package Main;
 
 import Fichier.Lecture;
+import Interface.Interface;
 import Ville.Matrice;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,7 +18,8 @@ public class Main {
         Matrice distance = Lecture.creationMatrice();
         villeDepart = distance.villes.get(0);
         villeRetour = distance.villes.get(distance.villes.size()-1);
-        taillePopulation = 1000; 
+        taillePopulation = 1000;
+        new Interface(distance.villes);
     }
     
 }
