@@ -4,21 +4,16 @@ package graphic;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.filechooser.FileSystemView;
 
 /**
  *
@@ -27,6 +22,7 @@ import javax.swing.filechooser.FileSystemView;
 public class UI extends JPanel{
 
     public UI(ArrayList<String> listVilles){
+
     //initialisation de la framePrincipale
     JFrame framePricipale = new JFrame("Problème du voyageur de commerce");
     framePricipale.setResizable(false);
@@ -75,11 +71,11 @@ public class UI extends JPanel{
         JComboBox choixVillesRetour = new JComboBox(villes);
 
         //parametre 1
-        JPanel panelPara1 = new JPanel();
-        panelPara1.setLayout(new FlowLayout());
-        JLabel labelPara1 = new JLabel("Taille de la population. N : ");
-        JTextField textPara1 = new JTextField(4);
-        textPara1.addKeyListener(new KeyListener(){
+    JPanel panelPara1 = new JPanel();
+    panelPara1.setLayout(new FlowLayout());
+    JLabel labelPara1 = new JLabel("Taille de la population. N : ");
+    JTextField textPara1 = new JTextField(4);
+    textPara1.addKeyListener(new KeyListener(){
         @Override
         public void keyPressed(KeyEvent e) {}
         @Override
@@ -225,7 +221,7 @@ public class UI extends JPanel{
         JComboBox choixStratRecombinaison = new JComboBox(stratRecombinaison);
         String[] tempsCalcul = new String[]{"Temps de calcul","Par génération","Par seconde", "Illimité"};
         JComboBox choixTempsCalcul = new JComboBox(tempsCalcul);
-        String[] stratRemplissage = new String[]{"Stratégie de Remplissage", "Parents et enfants", "Enfants uniquement"};
+        String[] stratRemplissage = new String[]{"Stratégie de Remplissage", "Nouveaux individus", "Enfants uniquement"};
         JComboBox choixRemplissage = new JComboBox(stratRemplissage);
     JButton boutonLancer = new JButton("Lancer");
 
@@ -246,11 +242,6 @@ public class UI extends JPanel{
 
 
 
-    boutonStop = new JButton("STOP");
-
-
-
-
 
     //colorisation des panel
     panelParametrage.setBackground(Color.BLUE);
@@ -267,7 +258,6 @@ public class UI extends JPanel{
 
 
     panelParametres.add(labelParametres);
-    panelParametres.add(boutonFichier);
         panelVillesDepart.add(labelVillesDepart);
         panelVillesDepart.add(choixVillesDepart);
         panelVillesRetour.add(labelVillesRetour);
