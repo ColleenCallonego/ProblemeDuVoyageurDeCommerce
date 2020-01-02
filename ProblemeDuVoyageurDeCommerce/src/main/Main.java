@@ -1,7 +1,7 @@
 package main;
 
 import fichier.Lecture;
-import graphic.UI;
+//import graphic.UI;
 import ville.Matrice;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class Main {
         villeDepart = distance.getVilles().get(0);
         villeRetour = distance.getVilles().get(distance.getVilles().size()-1);
         taillePopulation = 1000;
-        new UI(distance.getVilles());
+        //new UI(distance.getVilles());
     }
 
 }
