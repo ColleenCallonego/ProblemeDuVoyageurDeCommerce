@@ -1,7 +1,7 @@
 package main;
 
 import fichier.Lecture;
-import graphic.UI;
+//import graphic.UI;
 import ville.Matrice;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,10 +16,10 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         Matrice distance = Lecture.creationMatrice();
-        Lecture.villeDepart = distance.villes.get(0);
-        Lecture.villeRetour = distance.villes.get(distance.villes.size()-1);
-        Lecture.taillePopulation = 1000;
-        //new UI();
+        villeDepart = distance.getVilles().get(0);
+        villeRetour = distance.getVilles().get(distance.getVilles().size()-1);
+        taillePopulation = 1000;
+        //new UI(distance.getVilles());
     }
 
 }

@@ -13,9 +13,6 @@ import org.json.*;
  */
 public class Lecture {
     public static Matrice distance;
-    public static String villeDepart;
-    public static String villeRetour;
-    public static Integer taillePopulation;
 
     /**
      *
@@ -43,7 +40,7 @@ public class Lecture {
             villes.add(key);
         }
         //Création de la matrice des distances
-        Integer[][] matrice = creerMatrice(villes.size());
+        ArrayList<ArrayList<Integer>> matrice = creerMatrice(villes.size());
         a = o.names();
         while (!a.isEmpty()){
             String key = a.getString(0);
@@ -69,11 +66,12 @@ public class Lecture {
      * @param taille Nombre de ville contenue dans le fichier.
      * @return Le tableau/matrice créé(e).
      */
-    private static Integer[][] creerMatrice(int taille){
-        Integer[][] matrice = new Integer[taille][taille];
+    private static ArrayList<ArrayList<Integer>> creerMatrice(int taille){
+        ArrayList<ArrayList<Integer>> matrice = new ArrayList<ArrayList<Integer>>();
         for (int i = 0; i < taille; i++){
+            matrice.set(i, new ArrayList<Integer>());
     //Diagonale à 0 car la distance entre une ville et elle même est de 0
-            matrice[i][i] = 0;
+            matrice.get(i).set(i, 0);
         }
         return matrice;
     }
@@ -86,9 +84,9 @@ public class Lecture {
      * @param j Position de la seconde ville.
      * @param dis Distance entre les deux villes.
      */
-    private static void ajoutDistance(Integer mat[][], Integer i, Integer j, Integer dis){
+    private static void ajoutDistance(ArrayList<ArrayList<Integer>> mat, Integer i, Integer j, Integer dis){
     //Ajout de la distance entre deux villes, de façon sysmétrique
-        mat[i][j] = dis;
-        mat[j][i] = dis;
+        mat.get(i).set(j, dis);
+        mat.get(j).set(i, dis);
     }
 }

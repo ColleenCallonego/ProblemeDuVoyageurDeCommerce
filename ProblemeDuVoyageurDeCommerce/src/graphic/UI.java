@@ -63,9 +63,7 @@ public class UI extends JPanel{
             }
         });
         
-        
-        
-        ArrayList<String> listVilles = new ArrayList();
+        ArrayList<String> listVilles = new ArrayList<String>();
         Collections.sort(listVilles);
         String[] villes = new String[listVilles.size()];
         for(int i = 0; i < villes.length; i++){
@@ -98,6 +96,7 @@ public class UI extends JPanel{
                 }
             }
         });
+
 
     //parametre 2
     JPanel panelPara2 = new JPanel();
@@ -171,7 +170,7 @@ public class UI extends JPanel{
         JComboBox choixStratRecombinaison = new JComboBox(stratRecombinaison);
         String[] tempsCalcul = new String[]{"Temps de calcul","Par génération","Par seconde", "Illimité"};
         JComboBox choixTempsCalcul = new JComboBox(tempsCalcul);
-        String[] stratRemplissage = new String[]{"Stratégie de Remplissage", "Parents et enfants", "Enfants uniquement"};
+        String[] stratRemplissage = new String[]{"Stratégie de Remplissage", "Nouveaux individus", "Enfants uniquement"};
         JComboBox choixRemplissage = new JComboBox(stratRemplissage);
     JButton boutonLancer = new JButton("Lancer");
 
@@ -185,6 +184,7 @@ public class UI extends JPanel{
     JLabel labelCourbeFitness = new JLabel("Courbe de Fitness");
             //courbe
     JButton boutonStop = new JButton("STOP");
+
 
     //colorisation des panel
     panelParametrage.setBackground(Color.BLUE);
