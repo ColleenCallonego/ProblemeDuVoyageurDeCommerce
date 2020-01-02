@@ -1,269 +1,288 @@
 {
 	"Paris": {
-		"Distances": {
-			"Marseille": "774",
-			"Lyon": "466",
-			"Toulouse": "677",
-			"Nice": "931",
-			"Nantes": "384",
-			"Montpellier": "746",
-			"Strasbourg": "491",
-			"Bordeaux": "583",
-			"Lille": "225",
-			"Rennes": "354",
-			"Reims": "144",
-			"Brest": "590",
-			"Le Havre": "197",
-			"Toulon": "846",
-			"Grenoble": "583",
-			"Dijon": "340",
-			"Angers": "295",
-			"Nîmes": "719",
-			"Nancy": "347"
-		}
+        "Distances": {
+            "Paris":  "0",
+            "Marseille": "774",
+            "Lyon": "466",
+            "Toulouse": "677",
+            "Nice": "931",
+            "Nantes": "384",
+            "Montpellier": "746",
+            "Strasbourg": "491",
+            "Bordeaux": "583",
+            "Lille": "225",
+            "Rennes": "354",
+            "Reims": "144",
+            "Brest": "590",
+            "Le Havre": "197",
+            "Toulon": "846",
+            "Grenoble": "583",
+            "Dijon": "340",
+            "Angers": "295",
+            "Nîmes": "719",
+            "Nancy": "347"
+        }
 	},
 	"Marseille": {
-		"Distances": {
-			"Lyon": "314",
-			"Toulouse": "403",
-			"Nice": "199",
-			"Nantes": "986",
-			"Montpellier": "169",
-			"Strasbourg": "798",
-			"Bordeaux": "645",
-			"Lille": "1000",
-			"Rennes": "1052",
-			"Reims": "798",
-			"Brest": "1280",
-			"Le Havre": "965",
-			"Toulon": "66",
-			"Grenoble": "306",
-			"Dijon": "506",
-			"Angers": "905",
-			"Nîmes": "122",
-			"Nancy": "716"
-		}
+        "Distances": {
+            "Marseille":  "0",
+            "Lyon": "314",
+            "Toulouse": "403",
+            "Nice": "199",
+            "Nantes": "986",
+            "Montpellier": "169",
+            "Strasbourg": "798",
+            "Bordeaux": "645",
+            "Lille": "1000",
+            "Rennes": "1052",
+            "Reims": "798",
+            "Brest": "1280",
+            "Le Havre": "965",
+            "Toulon": "66",
+            "Grenoble": "306",
+            "Dijon": "506",
+            "Angers": "905",
+            "Nîmes": "122",
+            "Nancy": "716"
+        }
 	},
 	"Lyon": {
-		"Distances": {
-			"Toulouse": "537",
-			"Nice": "471",
-			"Nantes": "686",
-			"Montpellier": "303",
-			"Strasbourg": "488",
-			"Bordeaux": "553",
-			"Lille": "691",
-			"Rennes": "743",
-			"Reims": "490",
-			"Brest": "971",
-			"Le Havre": "657",
-			"Toulon": "378",
-			"Grenoble": "112",
-			"Dijon": "197",
-			"Angers": "597",
-			"Nîmes": "252",
-			"Nancy": "407"
-		}
+        "Distances": {
+            "Lyon": "0",
+            "Toulouse": "537",
+            "Nice": "471",
+            "Nantes": "686",
+            "Montpellier": "303",
+            "Strasbourg": "488",
+            "Bordeaux": "553",
+            "Lille": "691",
+            "Rennes": "743",
+            "Reims": "490",
+            "Brest": "971",
+            "Le Havre": "657",
+            "Toulon": "378",
+            "Grenoble": "112",
+            "Dijon": "197",
+            "Angers": "597",
+            "Nîmes": "252",
+            "Nancy": "407"
+        }
 	},
 	"Toulouse": {
-		"Distances": {
-			"Nice": "561",
-			"Nantes": "585",
-			"Montpellier": "243",
-			"Strasbourg": "1022",
-			"Bordeaux": "245",
-			"Lille": "894",
-			"Rennes": "704",
-			"Reims": "813",
-			"Brest": "882",
-			"Le Havre": "848",
-			"Toulon": "468",
-			"Grenoble": "530",
-			"Dijon": "650",
-			"Angers": "635",
-			"Nîmes": "291",
-			"Nancy": "940"
-		}
+        "Distances": {
+            "Toulouse": "0",
+            "Nice": "561",
+            "Nantes": "585",
+            "Montpellier": "243",
+            "Strasbourg": "1022",
+            "Bordeaux": "245",
+            "Lille": "894",
+            "Rennes": "704",
+            "Reims": "813",
+            "Brest": "882",
+            "Le Havre": "848",
+            "Toulon": "468",
+            "Grenoble": "530",
+            "Dijon": "650",
+            "Angers": "635",
+            "Nîmes": "291",
+            "Nancy": "940"
+        }
 	},	
 	"Nice": {
-		"Distances": {
-			"Nantes": "1143",
-			"Montpellier": "326",
-			"Strasbourg": "785",
-			"Bordeaux": "803",
-			"Lille": "1157",
-			"Rennes": "1241",
-			"Reims": "955",
-			"Brest": "1437",
-			"Le Havre": "1123",
-			"Toulon": "150",
-			"Grenoble": "463",
-			"Dijon": "663",
-			"Angers": "1063",
-			"Nîmes": "279",
-			"Nancy": "873"
-		}
+        "Distances": {
+            "Nice": "0",
+            "Nantes": "1143",
+            "Montpellier": "326",
+            "Strasbourg": "785",
+            "Bordeaux": "803",
+            "Lille": "1157",
+            "Rennes": "1241",
+            "Reims": "955",
+            "Brest": "1437",
+            "Le Havre": "1123",
+            "Toulon": "150",
+            "Grenoble": "463",
+            "Dijon": "663",
+            "Angers": "1063",
+            "Nîmes": "279",
+            "Nancy": "873"
+        }
 	},
 	"Nantes": {
-		"Distances": {
-			"Montpellier": "826",
-			"Strasbourg": "865",
-			"Bordeaux": "347",
-			"Lille": "600",
-			"Rennes": "113",
-			"Reims": "519",
-			"Brest": "296",
-			"Le Havre": "418",
-			"Toulon": "1050",
-			"Grenoble": "793",
-			"Dijon": "639",
-			"Angers": "92",
-			"Nîmes": "873",
-			"Nancy": "756"
-		}
+        "Distances": {
+            "Nantes": "0",
+            "Montpellier": "826",
+            "Strasbourg": "865",
+            "Bordeaux": "347",
+            "Lille": "600",
+            "Rennes": "113",
+            "Reims": "519",
+            "Brest": "296",
+            "Le Havre": "418",
+            "Toulon": "1050",
+            "Grenoble": "793",
+            "Dijon": "639",
+            "Angers": "92",
+            "Nîmes": "873",
+            "Nancy": "756"
+        }
 	},
 	"Montpellier": {
-		"Distances": {
-			"Strasbourg": "787",
-			"Bordeaux": "482",
-			"Lille": "963",
-			"Rennes": "918",
-			"Reims": "788",
-			"Brest": "1119",
-			"Le Havre": "917",
-			"Toulon": "233",
-			"Grenoble": "295",
-			"Dijon": "495",
-			"Angers": "772",
-			"Nîmes": "56",
-			"Nancy": "705"
-		}
+        "Distances": {
+            "Montpellier": "0",
+            "Strasbourg": "787",
+            "Bordeaux": "482",
+            "Lille": "963",
+            "Rennes": "918",
+            "Reims": "788",
+            "Brest": "1119",
+            "Le Havre": "917",
+            "Toulon": "233",
+            "Grenoble": "295",
+            "Dijon": "495",
+            "Angers": "772",
+            "Nîmes": "56",
+            "Nancy": "705"
+        }
 	},
 	"Strasbourg": {
-		"Distances": {
-			"Bordeaux": "943",
-			"Lille": "525",
-			"Rennes": "835",
-			"Reims": "351",
-			"Brest": "1072",
-			"Le Havre": "693",
-			"Toulon": "863",
-			"Grenoble": "575",
-			"Dijon": "330",
-			"Angers": "777",
-			"Nîmes": "737",
-			"Nancy": "160"
-		}
+        "Distances": {
+            "Strasbourg": "0",
+            "Bordeaux": "943",
+            "Lille": "525",
+            "Rennes": "835",
+            "Reims": "351",
+            "Brest": "1072",
+            "Le Havre": "693",
+            "Toulon": "863",
+            "Grenoble": "575",
+            "Dijon": "330",
+            "Angers": "777",
+            "Nîmes": "737",
+            "Nancy": "160"
+        }
 	},
 	"Bordeaux": {
-		"Distances": {
-			"Lille": "802",
-			"Rennes": "468",
-			"Reims": "725",
-			"Brest": "646",
-			"Le Havre": "688",
-			"Toulon": "710",
-			"Grenoble": "664",
-			"Dijon": "649",
-			"Angers": "399",
-			"Nîmes": "533",
-			"Nancy": "903"
-		}
+        "Distances": {
+            "Bordeaux": "0",
+            "Lille": "802",
+            "Rennes": "468",
+            "Reims": "725",
+            "Brest": "646",
+            "Le Havre": "688",
+            "Toulon": "710",
+            "Grenoble": "664",
+            "Dijon": "649",
+            "Angers": "399",
+            "Nîmes": "533",
+            "Nancy": "903"
+        }
 	},
 	"Lille": {
-		"Distances": {
-			"Rennes": "571",
-			"Reims": "207",
-			"Brest": "758",
-			"Le Havre": "316",
-			"Toulon": "1065",
-			"Grenoble": "801",
-			"Dijon": "501",
-			"Angers": "512",
-			"Nîmes": "938",
-			"Nancy": "410"
-		}
+        "Distances": {
+            "Lille": "0",
+            "Rennes": "571",
+            "Reims": "207",
+            "Brest": "758",
+            "Le Havre": "316",
+            "Toulon": "1065",
+            "Grenoble": "801",
+            "Dijon": "501",
+            "Angers": "512",
+            "Nîmes": "938",
+            "Nancy": "410"
+        }
 	},
 	"Rennes": {
-		"Distances": {
-			"Reims": "483",
-			"Brest": "242",
-			"Le Havre": "279",
-			"Toulon": "1110",
-			"Grenoble": "846",
-			"Dijon": "617",
-			"Angers": "129",
-			"Nîmes": "983",
-			"Nancy": "644"
-		}
+        "Distances": {
+            "Rennes": "0",
+            "Reims": "483",
+            "Brest": "242",
+            "Le Havre": "279",
+            "Toulon": "1110",
+            "Grenoble": "846",
+            "Dijon": "617",
+            "Angers": "129",
+            "Nîmes": "983",
+            "Nancy": "644"
+        }
 	},
 	"Reims": {
-		"Distances": {
-			"Brest": "725",
-			"Le Havre": "351",
-			"Toulon": "863",
-			"Grenoble": "599",
-			"Dijon": "299",
-			"Angers": "430",
-			"Nîmes": "736",
-			"Nancy": "207"
-		}
+        "Distances": {
+            "Reims": "0",
+            "Brest": "725",
+            "Le Havre": "351",
+            "Toulon": "863",
+            "Grenoble": "599",
+            "Dijon": "299",
+            "Angers": "430",
+            "Nîmes": "736",
+            "Nancy": "207"
+        }
 	},
 	"Brest": {
-		"Distances": {
-			"Le Havre": "467",
-			"Toulon": "1353",
-			"Grenoble": "1089",
-			"Dijon": "860",
-			"Angers": "378",
-			"Nîmes": "1170",
-			"Nancy": "929"
-		}
+        "Distances": {
+            "Brest": "0",
+            "Le Havre": "467",
+            "Toulon": "1353",
+            "Grenoble": "1089",
+            "Dijon": "860",
+            "Angers": "378",
+            "Nîmes": "1170",
+            "Nancy": "929"
+        }
 	},
 	"Le Havre": {
-		"Distances": {
-			"Toulon": "1029",
-			"Grenoble": "766",
-			"Dijon": "505",
-			"Angers": "329",
-			"Nîmes": "902",
-			"Nancy": "556"
-		}
+        "Distances": {
+            "Le Havre": "0",
+            "Toulon": "1029",
+            "Grenoble": "766",
+            "Dijon": "505",
+            "Angers": "329",
+            "Nîmes": "902",
+            "Nancy": "556"
+        }
 	},	
 	"Toulon": {
-		"Distances": {
-			"Grenoble": "326",
-			"Dijon": "570",
-			"Angers": "970",
-			"Nîmes": "186",
-			"Nancy": "780"
-		}
+        "Distances": {
+            "Toulon":  "0",
+            "Grenoble": "326",
+            "Dijon": "570",
+            "Angers": "970",
+            "Nîmes": "186",
+            "Nancy": "780"
+        }
 	},
 	"Grenoble": {
-		"Distances": {
-			"Dijon": "306",
-			"Angers": "705",
-			"Nîmes": "244",
-			"Nancy": "516"
-		}
+        "Distances": {
+            "Grenoble": "0",
+            "Dijon": "306",
+            "Angers": "705",
+            "Nîmes": "244",
+            "Nancy": "516"
+        }
 	},
 	"Dijon": {
-		"Distances": {
-			"Angers": "551",
-			"Nîmes": "442",
-			"Nancy": "217"
-		}
+        "Distances": {
+            "Dijon": "0",
+            "Angers": "551",
+            "Nîmes": "442",
+            "Nancy": "217"
+        }
 	},
 	"Angers": {
-		"Distances": {
-			"Nîmes": "843",
-			"Nancy": "669"
-		}
+        "Distances": {
+            "Angers":  "0",
+            "Nîmes": "843",
+            "Nancy": "669"
+        }
 	},
 	"Nîmes": {
-		"Distances": {
-			"Nancy": "654"
-		}
+        "Distances": {
+            "Nîmes": "0",
+            "Nancy": "654"
+        }
 	},
 	"Nancy": {
 		"Distances": {

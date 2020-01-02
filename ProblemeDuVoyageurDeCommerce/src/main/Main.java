@@ -19,6 +19,8 @@ public class Main {
         villeDepart = distance.getVilles().get(0);
         villeRetour = distance.getVilles().get(distance.getVilles().size()-1);
         taillePopulation = 1000;
+        System.out.println(distance.getVilles());
+        System.out.println(distance.getMatrice());
         //new UI(distance.getVilles());
     }
 

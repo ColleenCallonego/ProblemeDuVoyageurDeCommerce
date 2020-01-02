@@ -68,10 +68,12 @@ public class Lecture {
      */
     private static ArrayList<ArrayList<Integer>> creerMatrice(int taille){
         ArrayList<ArrayList<Integer>> matrice = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> listeCreation = new ArrayList<Integer>();
         for (int i = 0; i < taille; i++){
-            matrice.set(i, new ArrayList<Integer>());
-    //Diagonale à 0 car la distance entre une ville et elle même est de 0
-            matrice.get(i).set(i, 0);
+            listeCreation.add(-1);
+        }
+        for (int j = 0; j < taille; j++){
+            matrice.add((ArrayList<Integer>)listeCreation.clone());
         }
         return matrice;
     }

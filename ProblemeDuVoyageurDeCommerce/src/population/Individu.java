@@ -32,7 +32,7 @@ public class Individu {
 
   }
 
-  private Integer randomCity(Integer[] cities) {
+  /*private Integer randomCity(Integer[] cities) {
     //return (int)(Math.random() * max + min);
-  }
+  }*/
 }
