@@ -18,7 +18,7 @@ public class Individu {
     cities.add(begin);
     //get datas
     ArrayList<String> indexes = datas.getVilles();
-    Integer[][] length = datas.getMatrice();
+    ArrayList<ArrayList<Integer>> length = datas.getMatrice();
     Integer endIndex = indexes.indexOf(end);
     Integer beginIndex = indexes.indexOf(begin);
 
@@ -27,13 +27,12 @@ public class Individu {
     boolean found=false;
     Integer currentIndex = beginIndex;
     while(!found) {
-      tryFitness = length[currentIndex][randomCity(length[currentIndex])];
+      
     }
 
   }
 
   private Integer randomCity(Integer[] cities) {
-    ArrayList<Integer> ah = Collections.toArray(cities);
     //return (int)(Math.random() * max + min);
   }
 }
