@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * même ville dans le tableau/matrice.
  */
 public class Matrice {
-    public ArrayList<String> villes; //ArrayList des villes à visiter
-    public Integer[][] matrice; //Tableau/matrice des distances entre toutes les villes
+    private ArrayList<String> villes; //ArrayList des villes à visiter
+    private Integer[][] matrice; //Tableau/matrice des distances entre toutes les villes
 
     /**
      *Constructeur de la classe Matrice.
@@ -23,5 +23,13 @@ public class Matrice {
     public Matrice(Integer[][] matrice, ArrayList<String> villes) {
         this.villes = villes;
         this.matrice = matrice;
+    }
+
+    public Integer[][] getMatrice() {
+        return matrice;
+    }
+
+    public ArrayList<String> getVilles() {
+        return villes;
     }
 }
