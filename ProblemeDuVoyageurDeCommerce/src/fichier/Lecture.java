@@ -12,7 +12,6 @@ import org.json.*;
  *
  */
 public class Lecture {
-    public static Matrice distance;
 
     /**
      *
