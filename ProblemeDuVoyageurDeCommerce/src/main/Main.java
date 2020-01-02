@@ -20,7 +20,7 @@ public class Main {
         villeDepart = distance.getVilles().get(0);
         villeRetour = distance.getVilles().get(distance.getVilles().size()-1);
         taillePopulation = 1000;
-        new UI();
+        new UI(distance.getVilles());
     }
 
 }

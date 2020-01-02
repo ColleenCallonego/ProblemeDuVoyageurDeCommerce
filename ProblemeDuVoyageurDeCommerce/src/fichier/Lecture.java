@@ -1,10 +1,14 @@
 package fichier;
+import java.io.File;
 import ville.Matrice;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileSystemView;
 import org.json.*;
 
 /**
@@ -21,44 +25,60 @@ public class Lecture {
      * @throws IOException
      */
     public static Matrice creationMatrice() throws FileNotFoundException, IOException{
+        
+        //choix du fichier
+        FileSystemView vueSysteme = FileSystemView.getFileSystemView();
+        File defaut = vueSysteme.getDefaultDirectory();
+        JFileChooser choixFichier = new JFileChooser(defaut);
+        choixFichier.showOpenDialog(null);
+        String openFilePath = choixFichier.getSelectedFile().getAbsoluteFile().getAbsolutePath();
+        
         //Ouverture du fichier json
-        FileInputStream f = new FileInputStream("Villes.json");
-        String json = new String();
-        Scanner s = new Scanner(f);
-        while (s.hasNext()){
-            json += s.nextLine();
-        }
-        f.close();
-        //Création d'un objet JSON à partir du String du fichier
-        JSONObject o = new JSONObject(json);
-        JSONArray a = o.names();
-        //Création de la liste des villes dans l'ordre pour la matrice
-        ArrayList<String> villes = new ArrayList<String>();
-        while (!a.isEmpty()){
-            String key = a.getString(0);
-            a.remove(0);
-            villes.add(key);
-        }
-        //Création de la matrice des distances
-        ArrayList<ArrayList<Integer>> matrice = creerMatrice(villes.size());
-        a = o.names();
-        while (!a.isEmpty()){
-            String key = a.getString(0);
-            a.remove(0);
-            JSONObject jo = o.getJSONObject(key);
-            JSONObject jo2 = jo.optJSONObject("Distances");
-            JSONArray a2 = jo2.names();
-            while (!a2.isEmpty()){
-                String key2 = a2.getString(0);
-                a2.remove(0);
-                int pos1 = villes.indexOf(key);
-                int pos2 = villes.indexOf(key2);
-                int dist = jo2.getInt(key2);
-                ajoutDistance(matrice, pos1, pos2, dist);
+        try{
+            FileInputStream f = new FileInputStream(openFilePath);
+            String json = new String();
+            Scanner s = new Scanner(f);
+            while (s.hasNext()){
+                json += s.nextLine();
             }
+            f.close();
+            //Création d'un objet JSON à partir du String du fichier
+            JSONObject o = new JSONObject(json);
+            JSONArray a = o.names();
+            //Création de la liste des villes dans l'ordre pour la matrice
+            ArrayList<String> villes = new ArrayList<String>();
+            while (!a.isEmpty()){
+                String key = a.getString(0);
+                a.remove(0);
+                villes.add(key);
+            }
+            //Création de la matrice des distances
+            ArrayList<ArrayList<Integer>> matrice = creerMatrice(villes.size());
+            a = o.names();
+            while (!a.isEmpty()){
+                String key = a.getString(0);
+                a.remove(0);
+                JSONObject jo = o.getJSONObject(key);
+                JSONObject jo2 = jo.optJSONObject("Distances");
+                JSONArray a2 = jo2.names();
+                while (!a2.isEmpty()){
+                    String key2 = a2.getString(0);
+                    a2.remove(0);
+                    int pos1 = villes.indexOf(key);
+                    int pos2 = villes.indexOf(key2);
+                    int dist = jo2.getInt(key2);
+                    ajoutDistance(matrice, pos1, pos2, dist);
+                }
+            }
+            Matrice distance = new Matrice(matrice, villes);
+            return distance;
         }
-        Matrice distance = new Matrice(matrice, villes);
-        return distance;
+        catch(IOException ex){
+            JOptionPane MessageErreurFichier = new JOptionPane();
+            MessageErreurFichier.showMessageDialog(null, "Message d'erreur", "Erreur à l'ouverture du fichier", JOptionPane.ERROR_MESSAGE);
+            System.exit(0); 
+        }
+        return null;
     }
 
     /**
@@ -68,10 +88,12 @@ public class Lecture {
      */
     private static ArrayList<ArrayList<Integer>> creerMatrice(int taille){
         ArrayList<ArrayList<Integer>> matrice = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> listeCreation = new ArrayList<Integer>();
         for (int i = 0; i < taille; i++){
-            matrice.set(i, new ArrayList<Integer>());
-    //Diagonale à 0 car la distance entre une ville et elle même est de 0
-            matrice.get(i).set(i, 0);
+            listeCreation.add(-1);
+        }
+        for (int j = 0; j < taille; j++){
+            matrice.add((ArrayList<Integer>)listeCreation.clone());
         }
         return matrice;
     }
