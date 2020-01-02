@@ -1,15 +1,15 @@
-package Ville;
+package ville;
 import java.util.ArrayList;
 
 /**
- *Classe qui correspond à toutes les informations nécéssaires à propos 
- * des distances et des villes. 
- * On peut y trouver une ArrayList de String et un tableau/matrice en deux 
+ *Classe qui correspond à toutes les informations nécéssaires à propos
+ * des distances et des villes.
+ * On peut y trouver une ArrayList de String et un tableau/matrice en deux
  * dimensions.
- * On s'aide de l'ArrayList pour savoir à quelle ville correpond un indice dans 
+ * On s'aide de l'ArrayList pour savoir à quelle ville correpond un indice dans
  * le tableau.
- * L'indice d'une ville dans l'ArrayList correspond donc à l'indice de cette 
- * même ville dans le tableau/matrice. 
+ * L'indice d'une ville dans l'ArrayList correspond donc à l'indice de cette
+ * même ville dans le tableau/matrice.
  */
 public class Matrice {
     public ArrayList<String> villes; //ArrayList des villes à visiter

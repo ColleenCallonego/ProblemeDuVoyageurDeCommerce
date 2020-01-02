@@ -1,5 +1,5 @@
-package Fichier;
-import Ville.Matrice;
+package fichier;
+import ville.Matrice;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,10 +9,10 @@ import org.json.*;
 
 /**
  *Classe pour lire et stocker toutes les informations contenues dans le fichier.
- * 
+ *
  */
 public class Lecture {
-    
+
     /**
      *
      * @return
@@ -20,7 +20,7 @@ public class Lecture {
      * @throws IOException
      */
     public static Matrice creationMatrice() throws FileNotFoundException, IOException{
-        //Ouverture du fichier json 
+        //Ouverture du fichier json
         FileInputStream f = new FileInputStream("Villes.json");
         String json = new String();
         Scanner s = new Scanner(f);
@@ -32,7 +32,7 @@ public class Lecture {
         JSONObject o = new JSONObject(json);
         JSONArray a = o.names();
         //Création de la liste des villes dans l'ordre pour la matrice
-        ArrayList<String> villes = new ArrayList();
+        ArrayList<String> villes = new ArrayList<String>();
         while (!a.isEmpty()){
             String key = a.getString(0);
             a.remove(0);
@@ -59,13 +59,13 @@ public class Lecture {
         Matrice distance = new Matrice(matrice, villes);
         return distance;
     }
-    
+
     /**
      *Méthode pour créer la matrice/le tableau des distances
      * @param taille Nombre de ville contenue dans le fichier.
      * @return Le tableau/matrice créé(e).
      */
-    public static Integer[][] creerMatrice(int taille){
+    private static Integer[][] creerMatrice(int taille){
         Integer[][] matrice = new Integer[taille][taille];
         for (int i = 0; i < taille; i++){
     //Diagonale à 0 car la distance entre une ville et elle même est de 0
@@ -73,16 +73,16 @@ public class Lecture {
         }
         return matrice;
     }
-    
+
     /**
-     *Méthode pour ajouter une distance entre deux villes dans 
+     *Méthode pour ajouter une distance entre deux villes dans
      * le tableau/matrice.
      * @param mat Tableau/matrice où il faut ajouter une distance.
      * @param i Position de la première ville.
      * @param j Position de la seconde ville.
      * @param dis Distance entre les deux villes.
      */
-    public static void ajoutDistance(Integer mat[][], Integer i, Integer j, Integer dis){
+    private static void ajoutDistance(Integer mat[][], Integer i, Integer j, Integer dis){
     //Ajout de la distance entre deux villes, de façon sysmétrique
         mat[i][j] = dis;
         mat[j][i] = dis;

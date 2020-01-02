@@ -1,4 +1,4 @@
-package Interface;
+package graphic;
 
 
 import java.awt.Color;
@@ -19,40 +19,40 @@ import javax.swing.JTextField;
  *
  * @author gabri
  */
-public class Interface extends JPanel{
+public class UI extends JPanel{
 
-    public Interface(ArrayList<String> listVilles){
-        
+    public UI(ArrayList<String> listVilles){
+
     //initialisation de la framePrincipale
     JFrame framePricipale = new JFrame("Problème du voyageur de commerce");
     framePricipale.setResizable(false);
     framePricipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     framePricipale.setSize(1800, 1000);
     framePricipale.setLocationRelativeTo(null);
-    
+
     //initialisation du panelParametrage
     JPanel panelParametrage = new JPanel();
     panelParametrage.setLayout(new GridLayout(4,1));
-    
+
     //initialisation des éléments dans panelParametrage
     JLabel labelParametrage = new JLabel("Paramètres et Stratégies");
     JPanel panelParametres = new JPanel ();
         //initialisation du panelParametres
         JLabel labelParametres = new JLabel ("Paramètres");
-        
+
         Collections.sort(listVilles);
         String[] villes = new String[listVilles.size()];
         for(int i = 0; i < villes.length; i++){
             villes[i] = listVilles.get(i);
         }
-        
+
         JPanel panelVillesDepart = new JPanel();
         JLabel labelVillesDepart = new JLabel("Ville de départ ");
         JComboBox choixVillesDepart = new JComboBox(villes);
         JPanel panelVillesRetour = new JPanel();
         JLabel labelVillesRetour = new JLabel("Ville de retour ");
         JComboBox choixVillesRetour = new JComboBox(villes);
-        
+
         //parametre 1
     JPanel panelPara1 = new JPanel();
     panelPara1.setLayout(new FlowLayout());
@@ -72,7 +72,7 @@ public class Interface extends JPanel{
             }
         }
     });
-    
+
     //parametre 2
     JPanel panelPara2 = new JPanel();
     panelPara2.setLayout(new FlowLayout());
@@ -92,7 +92,7 @@ public class Interface extends JPanel{
             }
         }
     });
-    
+
     //parametre 3
     JPanel panelPara3 = new JPanel();
     panelPara3.setLayout(new FlowLayout());
@@ -112,7 +112,7 @@ public class Interface extends JPanel{
             }
         }
     });
-        
+
     //parametre 4
     JPanel panelPara4 = new JPanel();
     panelPara4.setLayout(new FlowLayout());
@@ -132,10 +132,10 @@ public class Interface extends JPanel{
             }
         }
     });
-        
-        
-        
-        
+
+
+
+
     JPanel panelStrategies = new JPanel ();
         //initialisation du panelStrategies
         JLabel labelStrategies = new JLabel ("Stratégies");
@@ -149,43 +149,43 @@ public class Interface extends JPanel{
         JComboBox choixTempsCalcul = new JComboBox(tempsCalcul);
         String[] stratRemplissage = new String[]{"Stratégie de Remplissage", "Nouveaux individus", "Enfants uniquement"};
         JComboBox choixRemplissage = new JComboBox(stratRemplissage);
-        
-        
-        
+
+
+
     JButton boutonLancer = new JButton("Lancer");
-    
-    
-    
+
+
+
     //initialisation panelCourbeFitness
     JPanel panelCourbeFitness = new JPanel();
     //panelCourbeFitness.setLayout(new FlowLayout());
-    
+
     //initialisation des éléments dans panelCourbeFitness
     JLabel labelCourbeFitness = new JLabel("Courbe de Fitness");
             //courbe
     JButton boutonStop = new JButton();
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 
     //colorisation des panel
     panelParametrage.setBackground(Color.BLUE);
     panelCourbeFitness.setBackground(Color.RED);
     panelParametres.setBackground(Color.CYAN);
     panelStrategies.setBackground(Color.GRAY);
-    
-    //encapsulation 
+
+    //encapsulation
     panelParametrage.add(labelParametrage);
     panelParametrage.add(panelParametres);
     panelParametrage.add(panelStrategies);
     panelParametrage.add(boutonLancer);
-    
-    
-    
+
+
+
     panelParametres.add(labelParametres);
         panelVillesDepart.add(labelVillesDepart);
         panelVillesDepart.add(choixVillesDepart);
@@ -205,27 +205,27 @@ public class Interface extends JPanel{
         panelPara4.add(labelPara4);
         panelPara4.add(textPara4);
     panelParametres.add(panelPara4);
-    
-    
-    
+
+
+
     panelStrategies.add(labelStrategies);
     panelStrategies.add(choixStratSelection);
     panelStrategies.add(choixStratRecombinaison);
     panelStrategies.add(choixRemplissage);
     panelStrategies.add(choixTempsCalcul);
-    
-    
+
+
     panelCourbeFitness.add(labelCourbeFitness);
     panelCourbeFitness.add(boutonStop);
-    
-    
+
+
     //encapsulation des éléments de la frame principale
     framePricipale.setLayout(null);
     panelParametrage.setBounds(0, 0, 400, 961);
     panelCourbeFitness.setBounds(400, 0, 1394, 961);
     framePricipale.add(panelParametrage);
     framePricipale.add(panelCourbeFitness);
-    
+
     framePricipale.setVisible(true);
     }
 }
