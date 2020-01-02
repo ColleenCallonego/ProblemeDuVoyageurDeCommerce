@@ -13,19 +13,19 @@ import java.util.ArrayList;
  */
 public class Matrice {
     private ArrayList<String> villes; //ArrayList des villes à visiter
-    private Integer[][] matrice; //Tableau/matrice des distances entre toutes les villes
+    private ArrayList<ArrayList<Integer>> matrice; //Tableau/matrice des distances entre toutes les villes
 
     /**
      *Constructeur de la classe Matrice.
      * @param matrice Tableau/matrice créé(e) où l'on retrouve toutes les distances.
      * @param villes ArrayList de toutes les villes.
      */
-    public Matrice(Integer[][] matrice, ArrayList<String> villes) {
+    public Matrice(ArrayList<ArrayList<Integer>> matrice, ArrayList<String> villes) {
         this.villes = villes;
         this.matrice = matrice;
     }
 
-    public Integer[][] getMatrice() {
+    public ArrayList<ArrayList<Integer>> getMatrice() {
         return matrice;
     }
 
