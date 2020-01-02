@@ -26,8 +26,8 @@ import javax.swing.filechooser.FileSystemView;
  */
 public class UI extends JPanel{
 
-    public UI(){
-
+    //public UI(){
+        public static void main(String[] args){
     //initialisation de la framePrincipale
     JFrame framePricipale = new JFrame("Problème du voyageur de commerce");
     framePricipale.setResizable(false);

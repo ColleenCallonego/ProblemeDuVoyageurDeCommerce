@@ -1,8 +1,6 @@
 package population;
 import ville.*;
-import fichier.*;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Individu {
   private ArrayList<String> cities;
@@ -32,7 +30,7 @@ public class Individu {
 
   }
 
-  private Integer randomCity(Integer[] cities) {
+ /* private Integer randomCity(Integer[] cities) {
     //return (int)(Math.random() * max + min);
-  }
+  }*/
 }
