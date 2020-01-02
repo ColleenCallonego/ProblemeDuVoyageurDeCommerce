@@ -1,8 +1,11 @@
 package population;
+
 import java.util.ArrayList;
+import java.util.Random;
 import static main.Main.KMeilleursParents;
 import static main.Main.distance;
 import static main.Main.taillePopulation;
+import static main.Main.tauxMutation;
 import static main.Main.villeDepart;
 import static main.Main.villeRetour;
 
@@ -12,16 +15,25 @@ import static main.Main.villeRetour;
 public class Population {
     private ArrayList<Individu> population;
 
+    public Population(){
+        //NE SERT A RIEN JUSTE POUR QUE JE PUISSE METTRE EN PLACE LES AUTRES METHODES 
+        //A ENLEVER UNE FOIS QU'ON SAIT COMMENT CREER LA POPULATION.
+    }
+    
+    /**
+     *Constructeur d'une population.
+     * @param population ArrayList d'Individu.
+     */
     public Population(ArrayList<Individu> population) {
         this.population = population;
     }
 
+    /**
+     *Getteur de l'ArrayList d'Individu de la population.
+     * @return
+     */
     public ArrayList<Individu> getPopulation() {
         return population;
-    }
-
-    public void setPopulation(ArrayList<Individu> population) {
-        this.population = population;
     }
     
     public void triePopulation(){//Méthode à appeler à la fin de la création d'une nouvelle population
@@ -85,9 +97,15 @@ public class Population {
 	villesEnfant2.addAll(indi1part2);
         Individu enfant2 = new Individu(villesEnfant2, Individu.calculFitness(villesEnfant2));
 	if (enfant1.verificationChemin()){
+            if (false){//PAS BONNE CONDITION, AIDEZ MOI POUR FAIRE LA PROBA DE MUTATION
+                enfant1.mutation();
+            }
 		enfants.add(enfant1);
 	}
 	if (enfant2.verificationChemin()){
+            if (false){//PAS BONNE CONDITION, AIDEZ MOI POUR FAIRE LA PROBA DE MUTATION
+                enfant2.mutation();
+            }
 		enfants.add(enfant2);
 	}
     }
@@ -138,7 +156,7 @@ public class Population {
      *Méthode pour afficher le meilleur individu.
      * @return Le meilleur individu de la population.
      */
-    public Individu affichageMeilleur(){
+    public Individu meilleur(){
 	return population.get(0); 
     }
 }
