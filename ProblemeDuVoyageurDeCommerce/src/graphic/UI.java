@@ -4,16 +4,21 @@ package graphic;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileSystemView;
 
 /**
  *
@@ -23,6 +28,11 @@ public class UI extends JPanel{
 
     public UI(ArrayList<String> listVilles){
 
+<<<<<<< HEAD:ProblemeDuVoyageurDeCommerce/src/graphic/UI.java
+=======
+    public Interface(){
+        
+>>>>>>> 22a76500412cbdbbb4e63e06a3f5d108a8ec5920:ProblemeDuVoyageurDeCommerce/src/Interface/Interface.java
     //initialisation de la framePrincipale
     JFrame framePricipale = new JFrame("Problème du voyageur de commerce");
     framePricipale.setResizable(false);
@@ -39,7 +49,28 @@ public class UI extends JPanel{
     JPanel panelParametres = new JPanel ();
         //initialisation du panelParametres
         JLabel labelParametres = new JLabel ("Paramètres");
+<<<<<<< HEAD:ProblemeDuVoyageurDeCommerce/src/graphic/UI.java
 
+=======
+        //choix du fichier
+        FileSystemView vueSysteme = FileSystemView.getFileSystemView();
+        File defaut = vueSysteme.getDefaultDirectory();
+        JFileChooser choixFichier = new JFileChooser(defaut);
+        JButton boutonFichier = new JButton("Choix du fichier");
+        boutonFichier.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                choixFichier.showOpenDialog(null);
+                String openFilePath = choixFichier.getSelectedFile().getAbsoluteFile().getAbsolutePath();
+                System.out.println(openFilePath);
+            }
+        });
+        
+        
+        
+        
+        ArrayList<String> listVilles = new ArrayList();
+>>>>>>> 22a76500412cbdbbb4e63e06a3f5d108a8ec5920:ProblemeDuVoyageurDeCommerce/src/Interface/Interface.java
         Collections.sort(listVilles);
         String[] villes = new String[listVilles.size()];
         for(int i = 0; i < villes.length; i++){
@@ -54,22 +85,24 @@ public class UI extends JPanel{
         JComboBox choixVillesRetour = new JComboBox(villes);
 
         //parametre 1
-    JPanel panelPara1 = new JPanel();
-    panelPara1.setLayout(new FlowLayout());
-    JLabel labelPara1 = new JLabel("Taille de la population. N : ");
-    JTextField textPara1 = new JTextField(4);
-    textPara1.addKeyListener(new KeyListener(){
-        @Override
-        public void keyPressed(KeyEvent e) {}
-        @Override
-        public void keyTyped(KeyEvent e) {}
-        @Override
-        public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() < KeyEvent.VK_NUMPAD0 || e.getKeyCode() > KeyEvent.VK_NUMPAD9){
-                if (!textPara1.getText().isEmpty()){
-                    textPara1.setText(textPara1.getText().substring(0, textPara1.getText().length() - 1));
+        JPanel panelPara1 = new JPanel();
+        panelPara1.setLayout(new FlowLayout());
+        JLabel labelPara1 = new JLabel("Taille de la population. N : ");
+        JTextField textPara1 = new JTextField(4);
+        textPara1.addKeyListener(new KeyListener(){
+            @Override
+            public void keyPressed(KeyEvent e) {}
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {
+            if (e.getKeyCode() < KeyEvent.VK_NUMPAD0 || e.getKeyCode() > KeyEvent.VK_NUMPAD9){
+                    if (!textPara1.getText().isEmpty()){
+                        textPara1.setText(textPara1.getText().substring(0, textPara1.getText().length() - 1));
+                    }
                 }
             }
+<<<<<<< HEAD:ProblemeDuVoyageurDeCommerce/src/graphic/UI.java
         }
     });
 
@@ -135,6 +168,70 @@ public class UI extends JPanel{
 
 
 
+=======
+        });
+
+        //parametre 2
+        JPanel panelPara2 = new JPanel();
+        panelPara2.setLayout(new FlowLayout());
+        JLabel labelPara2 = new JLabel("Meilleurs individus. K : ");
+        JTextField textPara2 = new JTextField(4);
+        textPara2.addKeyListener(new KeyListener(){
+            @Override
+            public void keyPressed(KeyEvent e) {}
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {
+            if (e.getKeyCode() < KeyEvent.VK_NUMPAD0 || e.getKeyCode() > KeyEvent.VK_NUMPAD9){
+                    if (!textPara2.getText().isEmpty()){
+                        textPara2.setText(textPara2.getText().substring(0, textPara2.getText().length() - 1));
+                    }
+                }
+            }
+        });
+
+        //parametre 3
+        JPanel panelPara3 = new JPanel();
+        panelPara3.setLayout(new FlowLayout());
+        JLabel labelPara3 = new JLabel("Taux de mutation(%). M : ");
+        JTextField textPara3 = new JTextField(4);
+        textPara3.addKeyListener(new KeyListener(){
+            @Override
+            public void keyPressed(KeyEvent e) {}
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {
+            if ((e.getKeyCode() < KeyEvent.VK_NUMPAD0 || e.getKeyCode() > KeyEvent.VK_NUMPAD9) && e.getKeyCode() != KeyEvent.VK_DECIMAL){
+                    if (!textPara3.getText().isEmpty()){
+                        textPara3.setText(textPara3.getText().substring(0, textPara3.getText().length() - 1));
+                    }
+                }
+            }
+        });
+
+        //parametre 4
+        JPanel panelPara4 = new JPanel();
+        panelPara4.setLayout(new FlowLayout());
+        JLabel labelPara4 = new JLabel("Temps de calcul(génération/seconde). T : ");
+        JTextField textPara4 = new JTextField(4);
+        textPara4.addKeyListener(new KeyListener(){
+            @Override
+            public void keyPressed(KeyEvent e) {}
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyReleased(KeyEvent e) {
+            if (e.getKeyCode() < KeyEvent.VK_NUMPAD0 || e.getKeyCode() > KeyEvent.VK_NUMPAD9){
+                    if (!textPara4.getText().isEmpty()){
+                        textPara4.setText(textPara4.getText().substring(0, textPara4.getText().length() - 1));
+                    }
+                }
+            }
+        });
+        
+>>>>>>> 22a76500412cbdbbb4e63e06a3f5d108a8ec5920:ProblemeDuVoyageurDeCommerce/src/Interface/Interface.java
 
     JPanel panelStrategies = new JPanel ();
         //initialisation du panelStrategies
@@ -147,11 +244,15 @@ public class UI extends JPanel{
         JComboBox choixStratRecombinaison = new JComboBox(stratRecombinaison);
         String[] tempsCalcul = new String[]{"Temps de calcul","Par génération","Par seconde", "Illimité"};
         JComboBox choixTempsCalcul = new JComboBox(tempsCalcul);
-        String[] stratRemplissage = new String[]{"Stratégie de Remplissage", "Nouveaux individus", "Enfants uniquement"};
+        String[] stratRemplissage = new String[]{"Stratégie de Remplissage", "Parents et enfants", "Enfants uniquement"};
         JComboBox choixRemplissage = new JComboBox(stratRemplissage);
+<<<<<<< HEAD:ProblemeDuVoyageurDeCommerce/src/graphic/UI.java
 
 
 
+=======
+        
+>>>>>>> 22a76500412cbdbbb4e63e06a3f5d108a8ec5920:ProblemeDuVoyageurDeCommerce/src/Interface/Interface.java
     JButton boutonLancer = new JButton("Lancer");
 
 
@@ -163,6 +264,7 @@ public class UI extends JPanel{
     //initialisation des éléments dans panelCourbeFitness
     JLabel labelCourbeFitness = new JLabel("Courbe de Fitness");
             //courbe
+<<<<<<< HEAD:ProblemeDuVoyageurDeCommerce/src/graphic/UI.java
     JButton boutonStop = new JButton();
 
 
@@ -171,6 +273,16 @@ public class UI extends JPanel{
 
 
 
+=======
+    JButton boutonStop = new JButton("STOP");
+    
+    
+    
+    
+    
+    
+    
+>>>>>>> 22a76500412cbdbbb4e63e06a3f5d108a8ec5920:ProblemeDuVoyageurDeCommerce/src/Interface/Interface.java
 
     //colorisation des panel
     panelParametrage.setBackground(Color.BLUE);
@@ -187,6 +299,7 @@ public class UI extends JPanel{
 
 
     panelParametres.add(labelParametres);
+    panelParametres.add(boutonFichier);
         panelVillesDepart.add(labelVillesDepart);
         panelVillesDepart.add(choixVillesDepart);
         panelVillesRetour.add(labelVillesRetour);

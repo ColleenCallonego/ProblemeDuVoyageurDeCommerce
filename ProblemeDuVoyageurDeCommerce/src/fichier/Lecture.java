@@ -12,6 +12,10 @@ import org.json.*;
  *
  */
 public class Lecture {
+    public static Matrice distance;
+    public static String villeDepart;
+    public static String villeRetour;
+    public static Integer taillePopulation;
 
     /**
      *
