@@ -52,7 +52,7 @@ public class Lecture {
                 villes.add(key);
             }
             //Création de la matrice des distances
-            ArrayList<ArrayList<Integer>> matrice = creerMatrice(villes.size());
+            ArrayList<ArrayList<Double>> matrice = creerMatrice(villes.size());
             a = o.names();
             while (!a.isEmpty()){
                 String key = a.getString(0);
@@ -65,7 +65,7 @@ public class Lecture {
                     a2.remove(0);
                     int pos1 = villes.indexOf(key);
                     int pos2 = villes.indexOf(key2);
-                    int dist = jo2.getInt(key2);
+                    Double dist = jo2.getDouble(key2);
                     ajoutDistance(matrice, pos1, pos2, dist);
                 }
             }
@@ -85,14 +85,14 @@ public class Lecture {
      * @param taille Nombre de ville contenue dans le fichier.
      * @return Le tableau/matrice créé(e).
      */
-    private static ArrayList<ArrayList<Integer>> creerMatrice(int taille){
-        ArrayList<ArrayList<Integer>> matrice = new ArrayList<ArrayList<Integer>>();
+    private static ArrayList<ArrayList<Double>> creerMatrice(int taille){
+        ArrayList<ArrayList<Double>> matrice = new ArrayList<ArrayList<Double>>();
         ArrayList<Integer> listeCreation = new ArrayList<Integer>();
         for (int i = 0; i < taille; i++){
             listeCreation.add(-1);
         }
         for (int j = 0; j < taille; j++){
-            matrice.add((ArrayList<Integer>)listeCreation.clone());
+            matrice.add((ArrayList<Double>)listeCreation.clone());
         }
         return matrice;
     }
@@ -105,7 +105,7 @@ public class Lecture {
      * @param j Position de la seconde ville.
      * @param dis Distance entre les deux villes.
      */
-    private static void ajoutDistance(ArrayList<ArrayList<Integer>> mat, Integer i, Integer j, Integer dis){
+    private static void ajoutDistance(ArrayList<ArrayList<Double>> mat, Integer i, Integer j, Double dis){
     //Ajout de la distance entre deux villes, de façon sysmétrique
         mat.get(i).set(j, dis);
         mat.get(j).set(i, dis);

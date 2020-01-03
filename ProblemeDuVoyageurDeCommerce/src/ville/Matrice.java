@@ -14,23 +14,57 @@ import java.util.ArrayList;
  */
 public class Matrice {
     private ArrayList<String> villes; //ArrayList des villes à visiter
-    private ArrayList<ArrayList<Integer>> matrice; //Tableau/matrice des distances entre toutes les villes
+    private ArrayList<ArrayList<Double>> matrice; //Tableau/matrice des distances entre toutes les villes
 
     /**
      *Constructeur de la classe Matrice.
      * @param matrice Tableau/matrice créé(e) où l'on retrouve toutes les distances.
      * @param villes ArrayList de toutes les villes.
      */
-    public Matrice(ArrayList<ArrayList<Integer>> matrice, ArrayList<String> villes) {
+    public Matrice(ArrayList<ArrayList<Double>> matrice, ArrayList<String> villes) {
         this.villes = villes;
         this.matrice = matrice;
     }
 
-    public ArrayList<ArrayList<Integer>> getMatrice() {
-        return matrice;
+    public Chemin randomWalk(String begin, String end) {
+      ArrayList<String> indexes = new ArrayList<String>();
+      Double length = 0.0;
+      String last = begin;
+      indexes.add(begin);
+      for(int i = 0; i<villes.size(); i++) {
+          String current = getRandomCity(last, indexes);
+          if(i == villes.size()-1) {
+            indexes.add(end);
+            length += matrice.get(villes.indexOf(last)).get(villes.indexOf(end));
+          } else if(!current.equals(end)) {
+            indexes.add(current);
+            length += matrice.get(villes.indexOf(last)).get(villes.indexOf(current));
+            last = current;
+          }
+      }
+      return new Chemin(indexes,length);
+    }
+
+    private String getRandomCity(String city, ArrayList<String> indexes){
+        Double value = -1.0;
+        Integer index = 0;
+        Integer max = matrice.get(villes.indexOf(city)).size()-1;
+        do {
+            index = random(0,max);
+            value = matrice.get(villes.indexOf(city)).get(index);
+        } while((value==-1 || value==0 || indexes.contains(villes.get(index))));
+        return villes.get(index);
+    }
+
+    private int random(int min, int max) {
+        return (int)(Math.random() * max + min);
+    }
+
+    public ArrayList<ArrayList<Double>> getMatrice() {
+      return matrice;
     }
 
     public ArrayList<String> getVilles() {
-        return villes;
+      return villes;
     }
 }
