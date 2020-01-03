@@ -23,11 +23,12 @@ public class Main {
     public static Integer nbGenerationSeconde;
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        tauxMutation = 0.5;
         taillePopulation = 3;
         k = 2;
         villeDepart = "Nancy";
         villeRetour = "Lille";
-        Matrice distance = Lecture.creationMatrice();
+        distance = Lecture.creationMatrice();
         ArrayList<String> a = new ArrayList<String>();
         a.add("Nancy");
         a.add("Paris");

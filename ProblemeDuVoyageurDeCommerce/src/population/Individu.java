@@ -3,6 +3,7 @@ package population;
 import ville.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import static main.Main.distance;
 
 public class Individu implements Comparable<Individu>{
@@ -56,13 +57,17 @@ public class Individu implements Comparable<Individu>{
     public void mutation(){
         ArrayList<String> copieVilles = path.getVilles();
         Double copieFitness = fitness;
-				Individu copieIndividu = this;
-				int nbAlea1 = (int) (Math.random()*((distance.getVilles().size() - 1) - 1)); //il ne faut pas changer la ville de départ et de retour
-				int nbAlea2 = (int) (Math.random()*((distance.getVilles().size() - 1) - 1));
-				String tempVille = copieVilles.get(nbAlea1);
-				copieVilles.set(nbAlea1, path.getVilles().get(nbAlea2));
-				copieVilles.set(nbAlea2, tempVille);
-				this.path.setVilles(copieVilles);
+        Random r = new Random();
+        Individu copieIndividu = this;
+        System.out.println(distance.getVilles().size());
+        Integer nbAlea1 = r.nextInt(path.getVilles().size() - 2) + 1;
+        Integer nbAlea2 = r.nextInt(path.getVilles().size() - 2) + 1;
+        /*int nbAlea1 = (int) (Math.random()*((distance.getVilles().size() - 1) - 1)); //il ne faut pas changer la ville de départ et de retour
+        int nbAlea2 = (int) (Math.random()*((distance.getVilles().size() - 1) - 1));*/
+        String tempVille = copieVilles.get(nbAlea1);
+        copieVilles.set(nbAlea1, path.getVilles().get(nbAlea2));
+        copieVilles.set(nbAlea2, tempVille);
+        this.path.setVilles(copieVilles);
         this.path.setLength(calculFitness(copieVilles));
         this.fitness = calculFitness(this.path.getVilles()); //on modifie la fitness de l'individu car ce n'est plus le même chemin
     }
