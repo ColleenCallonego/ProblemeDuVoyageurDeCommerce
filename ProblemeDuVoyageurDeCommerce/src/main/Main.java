@@ -64,6 +64,7 @@ public class Main {
         Genetique g = new Genetique();
         g.lancer();*/
         //new UI(distance.getVilles());
+
     }
 
 }
