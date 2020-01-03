@@ -2,8 +2,11 @@ package population;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import static main.Main.KMeilleursParents;
 import static main.Main.distance;
+import static main.Main.k;
+import static main.Main.nbIndividuTournoi;
 import static main.Main.taillePopulation;
 import static main.Main.tauxMutation;
 import static main.Main.villeDepart;
@@ -80,8 +83,26 @@ public class Population {
 	return KMeilleur;
     }
 
-    public void selectionTournoi(){
-        //A FAIRE, PAS ENCORE PENSER
+    public ArrayList<Individu> selectionTournoi(){
+        ArrayList<Individu> copiePop = (ArrayList<Individu>)population.clone();
+        ArrayList<Individu> kMeilleur = new ArrayList<Individu>();
+        ArrayList<Individu> tournoi = new ArrayList<Individu>();
+        Population t = new Population();
+        Random r = new Random();
+        Integer pos;
+        for (int i = 0; i < k; i++){
+            tournoi.clear();
+            t.getPopulation().clear();
+            for (int j = 0; j < nbIndividuTournoi; j++){
+                pos = r.nextInt(copiePop.size());
+                tournoi.add(copiePop.get(pos));
+                copiePop.remove(pos);
+            }
+            t = new Population(tournoi);
+            t.triePopulation();
+            kMeilleur.addAll(t.selectionKMeilleur(1));
+        }
+        return kMeilleur;
     }
 
     /**

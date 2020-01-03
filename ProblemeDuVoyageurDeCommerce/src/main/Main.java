@@ -22,6 +22,7 @@ public class Main {
     public static Integer k;
     public static ArrayList<Individu> KMeilleursParents;
     public static Integer nbGenerationSeconde;
+    public static Integer nbIndividuTournoi;
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
         /*tauxMutation = 0.5;
@@ -60,11 +61,12 @@ public class Main {
         p.remplacementPartiel(p.creationEnfants());
         System.out.println(p.getPopulation());*/
         nbGenerationSeconde = 100;
-        k = 100;
+        k = 20;
+        nbIndividuTournoi = 4;
         tauxMutation = 0.05;
         villeDepart = distance.getVilles().get(9);
         villeRetour = distance.getVilles().get(15);
-        taillePopulation = 200;
+        taillePopulation = 100;
         population = new Population(); 
         population.creerPopulation(distance, villeDepart, villeRetour, taillePopulation);
         sleep(500);
