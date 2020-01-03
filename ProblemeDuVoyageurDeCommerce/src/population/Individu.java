@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Random;
 import static main.Main.distance;
 
-public class Individu implements Comparable{
+public class Individu implements Comparable<Individu>{
   private Chemin path;
   private Double fitness;
 
@@ -24,8 +24,8 @@ public class Individu implements Comparable{
     public String toString() {
         return "Individu{" + "path=" + path + ", fitness=" + fitness + '}';
     }
-    
-    
+
+
     public Individu(String begin, String end, Matrice datas) {
         path = datas.randomWalk(begin,end);
         fitness = path.getLength();
@@ -77,9 +77,9 @@ public class Individu implements Comparable{
     }
 
     @Override
-    public int compareTo(Object t) {
+    public int compareTo(Individu t) {
         Double d = this.fitness;
-        Individu I2 = (Individu) t;
+        Individu I2 = t;
         Double d2 = I2.fitness;
         if (d-d2 < 0.0){
             return -1;
