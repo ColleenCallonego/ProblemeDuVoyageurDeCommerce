@@ -1,10 +1,4 @@
 package population;
-<<<<<<< HEAD
-import java.util.ArrayList;
-
-public class Population {
-  
-=======
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -22,10 +16,10 @@ public class Population {
     private ArrayList<Individu> population;
 
     public Population(){
-        //NE SERT A RIEN JUSTE POUR QUE JE PUISSE METTRE EN PLACE LES AUTRES METHODES 
+        //NE SERT A RIEN JUSTE POUR QUE JE PUISSE METTRE EN PLACE LES AUTRES METHODES
         //A ENLEVER UNE FOIS QU'ON SAIT COMMENT CREER LA POPULATION.
     }
-    
+
     /**
      *Constructeur d'une population.
      * @param population ArrayList d'Individu.
@@ -41,11 +35,11 @@ public class Population {
     public ArrayList<Individu> getPopulation() {
         return population;
     }
-    
+
     public void triePopulation(){//Méthode à appeler à la fin de la création d'une nouvelle population
 	//voir avec GabyChou pour utiliser le .sort
     }
-    
+
     /**
      *Méthode pour sélectionner les K meilleurs individus de la population.
      * @param k Nombre d'individu à selectionner.
@@ -58,11 +52,11 @@ public class Population {
 	}
 	return KMeilleur;
     }
-    
+
     public void selectionTournoi(){
         //A FAIRE, PAS ENCORE PENSER
     }
-    
+
     /**
      *Méthode pour créer tous les enfants possibles de la population.
      * @return ArrayList d'Individu qui correspond à tous les enfants créés.
@@ -76,7 +70,7 @@ public class Population {
 	}
         return enfants;
     }
-    
+
     /**
      *Méthode pour recombiner deux individus entre eux.
      * On les recombine en les coupant en deux.
@@ -115,13 +109,13 @@ public class Population {
 		enfants.add(enfant2);
 	}
     }
-    
+
     /**
      *Méthode pour remplacer toute la population par des enfants des individus.
      * Et si il n'y a pas assez d'enfants, on complète par des nouveaux individus.
      * @param enfants ArrayList de tous les enfants de la population à remplacer.
      */
-    public void remplacementTotal(ArrayList enfants){ 
+    public void remplacementTotal(ArrayList enfants){
 	if (enfants.size() > population.size()){
 		population = selectionKMeilleur(taillePopulation);
 	}
@@ -135,7 +129,7 @@ public class Population {
 	}
         this.triePopulation();
     }
-    
+
     /**
      *Méthode pour remplacer partiellement la population.
      * Et si il n'y a pas assez d'enfants, on complète par des nouveaux individus.
@@ -157,13 +151,12 @@ public class Population {
 	}
         this.triePopulation();
     }
-    
+
     /**
      *Méthode pour afficher le meilleur individu.
      * @return Le meilleur individu de la population.
      */
     public Individu meilleur(){
-	return population.get(0); 
+	return population.get(0);
     }
->>>>>>> a44b72df130231d6e1066fe741f07d5bbc092cfd
 }
