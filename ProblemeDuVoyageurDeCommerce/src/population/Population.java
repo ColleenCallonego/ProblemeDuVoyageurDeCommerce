@@ -8,7 +8,7 @@ import static main.Main.taillePopulation;
 import static main.Main.tauxMutation;
 import static main.Main.villeDepart;
 import static main.Main.villeRetour;
-import ville.Chemin;
+import ville.*;
 
 /**
  *Classe pour la population d'individu.
@@ -19,6 +19,25 @@ public class Population {
     public Population(){
         //NE SERT A RIEN JUSTE POUR QUE JE PUISSE METTRE EN PLACE LES AUTRES METHODES
         //A ENLEVER UNE FOIS QU'ON SAIT COMMENT CREER LA POPULATION.
+    }
+
+    public Population(Matrice matrice, String begin, String end, int size) {
+        population = new ArrayList<Individu>();
+
+        Builder builder1 = new Builder(matrice,begin,end,size/4);
+        Builder builder2 = new Builder(matrice,begin,end,size/4);
+        Builder builder3 = new Builder(matrice,begin,end,size/4);
+        Builder builder4 = new Builder(matrice,begin,end,size/4);
+
+        builder1.start();
+        builder2.start();
+        builder3.start();
+        builder4.start();
+
+        population.addAll(builder1.getIndividus());
+        population.addAll(builder2.getIndividus());
+        population.addAll(builder3.getIndividus());
+        population.addAll(builder4.getIndividus());
     }
 
     /**
