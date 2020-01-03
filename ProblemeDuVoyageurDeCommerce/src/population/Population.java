@@ -26,11 +26,7 @@ public class Population {
         for(int i=0; i<4; i++) {
             Builder builder = new Builder(matrice,begin,end,size/4);
             builder.start();
-            try {
-                builder.join();
-            } catch(InterruptedException e) {
-                population.addAll(builder.getIndividus());
-            }
+            population.addAll(builder.getIndividus());
         }
     }
 
