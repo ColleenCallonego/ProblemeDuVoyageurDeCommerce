@@ -31,7 +31,8 @@ public class Matrice {
       Double length = 0.0;
       String last = begin;
       indexes.add(begin);
-      for(int i = 0; i<villes.size(); i++) {
+      int i = 1;
+      while(i<villes.size()) {
           String current = getRandomCity(last, indexes);
           if(i == villes.size()-1) {
             indexes.add(end);
@@ -40,6 +41,7 @@ public class Matrice {
             indexes.add(current);
             length += matrice.get(villes.indexOf(last)).get(villes.indexOf(current));
             last = current;
+            i++;
           }
       }
       return new Chemin(indexes,length);
@@ -48,7 +50,7 @@ public class Matrice {
     private String getRandomCity(String city, ArrayList<String> indexes){
         Double value = -1.0;
         Integer index = 0;
-        Integer max = matrice.get(villes.indexOf(city)).size()-1;
+        Integer max = villes.size()-1;
         do {
             index = random(0,max);
             value = matrice.get(villes.indexOf(city)).get(index);
