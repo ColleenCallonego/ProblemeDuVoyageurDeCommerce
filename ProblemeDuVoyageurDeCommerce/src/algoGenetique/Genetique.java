@@ -19,7 +19,7 @@ public class Genetique {
      *Méthode pour lancer l'algo génétique.
      */
     public void lancer(){
-        Integer nbFois = 0;
+        Integer nbFois = 0; 
         Individu meilleur = population.meilleur();
         System.out.println(meilleur.Path().getVilles());
         System.out.println(meilleur.getFitness());

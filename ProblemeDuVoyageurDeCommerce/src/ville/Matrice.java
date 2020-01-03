@@ -31,27 +31,32 @@ public class Matrice {
       Double length = 0.0;
       String last = begin;
       indexes.add(begin);
-      int i = 1;
-      while(i<villes.size()) {
+      int i = 0;
+      int nbVillesChemin;
+      if (begin.equals(end)){
+          nbVillesChemin = villes.size() - 1;
+      }
+      else{
+          nbVillesChemin = villes.size() - 2;
+      }
+      while(i<nbVillesChemin) {
           String current = getRandomCity(last, indexes);
-          if(i == villes.size()-2) {
-            indexes.add(end);
-            length += matrice.get(villes.indexOf(last)).get(villes.indexOf(end));
-            break;
-          } else if(!current.equals(end)) {
+          if(!current.equals(end)) {
             indexes.add(current);
             length += matrice.get(villes.indexOf(last)).get(villes.indexOf(current));
             last = current;
             i++;
           }
       }
+      indexes.add(end);
+            length += matrice.get(villes.indexOf(last)).get(villes.indexOf(end));
       return new Chemin(indexes,length);
     }
 
     private String getRandomCity(String city, ArrayList<String> indexes){
         Double value = -1.0;
         Integer index = 0;
-        Integer max = villes.size()-1;
+        Integer max = villes.size();
         do {
             index = random(0,max);
             value = matrice.get(villes.indexOf(city)).get(index);

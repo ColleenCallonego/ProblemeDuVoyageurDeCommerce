@@ -59,16 +59,18 @@ public class Main {
         System.out.println(p.creationEnfants());
         p.remplacementPartiel(p.creationEnfants());
         System.out.println(p.getPopulation());*/
-        nbGenerationSeconde = 3;
-        villeDepart = distance.getVilles().get(0);
-        villeRetour = distance.getVilles().get(0);
-        taillePopulation = 20;
-        population = new Population();
+        nbGenerationSeconde = 30;
+        k = 10;
+        tauxMutation = 0.05;
+        villeDepart = distance.getVilles().get(9);
+        villeRetour = distance.getVilles().get(15);
+        taillePopulation = 100;
+        population = new Population(); 
         population.creerPopulation(distance, villeDepart, villeRetour, taillePopulation);
         sleep(500);
-        System.out.println(population.getPopulation());
+        population.verifPopulation();
         Genetique g = new Genetique();
-        //g.lancer();
+        g.lancer();
         //new UI(distance.getVilles());
 
     }

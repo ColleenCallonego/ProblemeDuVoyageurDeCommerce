@@ -22,8 +22,14 @@ public class Population {
 
     public void creerPopulation(Matrice matrice, String begin, String end, int size) {
         for(int i=0; i<4; i++) {
-            Builder builder = new Builder(matrice,begin,end,size/4);
-            builder.start();
+            if (i != 3){
+                Builder builder = new Builder(matrice,begin,end,size/4);
+                builder.start();
+            }
+            else{
+                Builder builder = new Builder(matrice,begin,end,((size/4) + (size%4)));
+                builder.start();
+            }
         }
     }
 
@@ -47,6 +53,16 @@ public class Population {
         this.population = population;
     }
 
+    public void verifPopulation(){
+        if (population.size() > taillePopulation){
+            Integer trop = population.size() - taillePopulation;
+            for(int i = 0; i < trop; i++){
+                population.remove(0);
+            }
+        }
+        this.triePopulation();
+    }
+    
     public void triePopulation(){//Méthode à appeler à la fin de la création d'une nouvelle population
         Collections.sort(population);
     }
@@ -74,8 +90,8 @@ public class Population {
      */
     public ArrayList<Individu> creationEnfants(){
 	ArrayList<Individu> enfants = new ArrayList<Individu>();
-	for (int i = 0; i < taillePopulation; i++){
-            for (int j = i + 1; j < taillePopulation; j++){
+	for (int i = 0; i < population.size(); i++){
+            for (int j = i + 1; j < population.size(); j++){
                 recombinaisonSimple(population.get(i), population.get(j), enfants);
             }
 	}
@@ -101,22 +117,50 @@ public class Population {
 	indi2part2 = partieArrayList(milieu, indi2.getPath().getVilles().size(), indi2.getPath().getVilles());
 	ArrayList<String> villesEnfant1 = new ArrayList<String>();
 	villesEnfant1 = indi1part1;
+        verifChemin(villesEnfant1);
 	villesEnfant1.addAll(indi2part2);
         Individu enfant1 = new Individu(new Chemin(villesEnfant1, Individu.calculFitness(villesEnfant1)), Individu.calculFitness(villesEnfant1));
-	ArrayList<String> villesEnfant2 = new ArrayList<String>();
+        ArrayList<String> villesEnfant2 = new ArrayList<String>();
 	villesEnfant2 = indi2part1;
 	villesEnfant2.addAll(indi1part2);
+        verifChemin(villesEnfant2);
         Individu enfant2 = new Individu(new Chemin(villesEnfant2, Individu.calculFitness(villesEnfant2)), Individu.calculFitness(villesEnfant2));
-            if ((Double)Math.random() <= tauxMutation){ //PAS BONNE CONDITON, AIDEZ MOI
+        if (tauxMutation != 0.0){    
+            if ((Double)Math.random()*100 <= tauxMutation){ 
                 enfant1.mutation();
             }
             enfants.add(enfant1);
-            if ((Double)Math.random() <= tauxMutation){ //PAS BONNE CONDITON, AIDEZ MOI
+            if ((Double)Math.random()*100 <= tauxMutation){ 
                enfant2.mutation();
             }
             enfants.add(enfant2);
+        }
     }
 
+    public void verifChemin(ArrayList<String> villes){
+        ArrayList<String> distanceVilleCopie = (ArrayList<String>)distance.getVilles().clone();
+        distanceVilleCopie.remove(villeDepart);
+        distanceVilleCopie.remove(villeRetour);
+        for(int i = 1; i < distanceVilleCopie.size(); i++){
+            if (occurence(villes, distanceVilleCopie.get(i)) == 2){
+                villes.remove(villes.lastIndexOf(distanceVilleCopie.get(i)));
+            }
+            else if (occurence(villes, distanceVilleCopie.get(i)) == 0){
+                villes.add(villes.size() - 2,distanceVilleCopie.get(i));
+            }
+        }
+    }
+    
+    public Integer occurence(ArrayList<String> villes, String ville){
+        Integer occur = 0;
+        for(int i = 1; i < villes.size() - 1; i++){
+            if (villes.get(i) == ville){
+                occur++;
+            }
+        }
+        return occur;
+    }
+    
     public ArrayList<String> partieArrayList(Integer pos1, Integer pos2, ArrayList<String> a){
         ArrayList<String> partie = new ArrayList<String>();
         for (int i = pos1; i < pos2; i++){

@@ -72,7 +72,11 @@ public class Individu implements Comparable<Individu>{
     }
 
     public static Double calculFitness(ArrayList<String> villes){
-        return 0.0; //
+        Double kilometre = 0.0;
+        for(int i = 0; i < villes.size()- 1; i++){
+            kilometre = kilometre + distance.getMatrice().get(distance.getVilles().indexOf(villes.get(i))).get(distance.getVilles().indexOf(villes.get(i + 1)));
+        }
+        return kilometre;
     }
 
     @Override
