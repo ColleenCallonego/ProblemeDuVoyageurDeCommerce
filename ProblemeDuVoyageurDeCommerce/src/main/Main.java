@@ -23,13 +23,13 @@ public class Main {
     public static Integer nbGenerationSeconde;
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        tauxMutation = 0.5;
+        /*tauxMutation = 0.5;
         taillePopulation = 3;
         k = 2;
         villeDepart = "Nancy";
-        villeRetour = "Lille";
+        villeRetour = "Lille";*/
         distance = Lecture.creationMatrice();
-        ArrayList<String> a = new ArrayList<String>();
+        /*ArrayList<String> a = new ArrayList<String>();
         a.add("Nancy");
         a.add("Paris");
         a.add("Brest");
@@ -57,13 +57,15 @@ public class Main {
         KMeilleursParents = p.selectionKMeilleur(2);
         System.out.println(p.creationEnfants());
         p.remplacementPartiel(p.creationEnfants());
-        System.out.println(p.getPopulation());
-        /*villeDepart = distance.getVilles().get(0);
-        villeRetour = distance.getVilles().get(distance.getVilles().size()-1);
-        taillePopulation = 1000;
-        population = new Population();
+        System.out.println(p.getPopulation());*/
+        nbGenerationSeconde = 3;
+        villeDepart = distance.getVilles().get(0);
+        villeRetour = distance.getVilles().get(0);
+        taillePopulation = 20;
+        population = new Population(distance, villeDepart, villeRetour, taillePopulation);
+        System.out.println(population.getPopulation());
         Genetique g = new Genetique();
-        g.lancer();*/
+        //g.lancer();
         //new UI(distance.getVilles());
 
     }

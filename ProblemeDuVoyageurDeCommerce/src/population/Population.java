@@ -23,7 +23,6 @@ public class Population {
 
     public Population(Matrice matrice, String begin, String end, int size) {
         population = new ArrayList<Individu>();
-
         Builder builder1 = new Builder(matrice,begin,end,size/4);
         Builder builder2 = new Builder(matrice,begin,end,size/4);
         Builder builder3 = new Builder(matrice,begin,end,size/4);
