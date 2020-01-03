@@ -26,7 +26,7 @@ public class Matrice {
         this.matrice = matrice;
     }
 
-    public synchronized Chemin randomWalk(String begin, String end) {
+    public Chemin randomWalk(String begin, String end) {
       ArrayList<String> indexes = new ArrayList<String>();
       Double length = 0.0;
       String last = begin;
@@ -37,6 +37,7 @@ public class Matrice {
           if(i == villes.size()-1) {
             indexes.add(end);
             length += matrice.get(villes.indexOf(last)).get(villes.indexOf(end));
+            i++;
           } else if(!current.equals(end)) {
             indexes.add(current);
             length += matrice.get(villes.indexOf(last)).get(villes.indexOf(current));
