@@ -175,8 +175,9 @@ public class Population {
      * @param enfants ArrayList de tous les enfants de la population à remplacer.
      */
     public void remplacementTotal(ArrayList<Individu> enfants){
-	if (enfants.size() > population.size()){
+	if (enfants.size() >= population.size()){
                 Population e = new Population(enfants);
+                e.triePopulation();
 		population = e.selectionKMeilleur(taillePopulation);
 	}
 	else {
@@ -197,10 +198,11 @@ public class Population {
      */
     public void remplacementPartiel(ArrayList<Individu> enfants){
 	population.clear();
-	population.addAll(KMeilleursParents); //faire une variable globale KMeilleurParents
+	population.addAll(KMeilleursParents); 
 	int NbManquant = taillePopulation - KMeilleursParents.size();
-	if (enfants.size() > NbManquant){
+	if (enfants.size() >= NbManquant){
                 Population e = new Population(enfants);
+                e.triePopulation();
 		population.addAll(e.selectionKMeilleur(NbManquant));
 	}
 	else {

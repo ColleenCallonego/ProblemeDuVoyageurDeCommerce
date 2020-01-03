@@ -59,12 +59,12 @@ public class Main {
         System.out.println(p.creationEnfants());
         p.remplacementPartiel(p.creationEnfants());
         System.out.println(p.getPopulation());*/
-        nbGenerationSeconde = 30;
-        k = 10;
+        nbGenerationSeconde = 100;
+        k = 100;
         tauxMutation = 0.05;
         villeDepart = distance.getVilles().get(9);
         villeRetour = distance.getVilles().get(15);
-        taillePopulation = 100;
+        taillePopulation = 200;
         population = new Population(); 
         population.creerPopulation(distance, villeDepart, villeRetour, taillePopulation);
         sleep(500);
