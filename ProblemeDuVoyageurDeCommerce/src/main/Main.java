@@ -6,6 +6,7 @@ import graphic.UI;
 import ville.Matrice;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import population.Individu;
 import population.Population;
@@ -22,7 +23,7 @@ public class Main {
     public static ArrayList<Individu> KMeilleursParents;
     public static Integer nbGenerationSeconde;
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
         /*tauxMutation = 0.5;
         taillePopulation = 3;
         k = 2;
@@ -62,9 +63,11 @@ public class Main {
         villeDepart = distance.getVilles().get(0);
         villeRetour = distance.getVilles().get(0);
         taillePopulation = 20;
-        population = new Population(distance, villeDepart, villeRetour, taillePopulation);
+        population = new Population();
+        population.creerPopulation(distance, villeDepart, villeRetour, taillePopulation);
+        sleep(500);
         System.out.println(population.getPopulation());
-        //Genetique g = new Genetique();
+        Genetique g = new Genetique();
         //g.lancer();
         //new UI(distance.getVilles());
 

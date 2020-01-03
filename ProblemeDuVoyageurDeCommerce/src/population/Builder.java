@@ -1,6 +1,7 @@
 package population;
 import ville.*;
 import java.util.ArrayList;
+import static main.Main.population;
 
 public class Builder extends Thread {
   private Matrice matrice;
@@ -21,10 +22,14 @@ public class Builder extends Thread {
 	}
 
 	public void run() {
+            ArrayList<Individu> ajout = new ArrayList();
 		for(int i=0; i<number; i++) {
 			Chemin ah = matrice.randomWalk(begin,end);
 			individus.add(new Individu(ah,ah.getLength()));
 		}
+                ajout.addAll(population.getPopulation());
+                ajout.addAll(individus);
+                population.setPopulation(ajout);
 	}
 
 	public ArrayList<Individu> getIndividus() {

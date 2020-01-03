@@ -17,16 +17,13 @@ public class Population {
     private ArrayList<Individu> population;
 
     public Population(){
-        //NE SERT A RIEN JUSTE POUR QUE JE PUISSE METTRE EN PLACE LES AUTRES METHODES
-        //A ENLEVER UNE FOIS QU'ON SAIT COMMENT CREER LA POPULATION.
+        population = new ArrayList<Individu>();
     }
 
-    public Population(Matrice matrice, String begin, String end, int size) {
-        population = new ArrayList<Individu>();
+    public void creerPopulation(Matrice matrice, String begin, String end, int size) {
         for(int i=0; i<4; i++) {
             Builder builder = new Builder(matrice,begin,end,size/4);
             builder.start();
-            population.addAll(builder.getIndividus());
         }
     }
 
@@ -44,6 +41,10 @@ public class Population {
      */
     public ArrayList<Individu> getPopulation() {
         return population;
+    }
+
+    public void setPopulation(ArrayList<Individu> population) {
+        this.population = population;
     }
 
     public void triePopulation(){//Méthode à appeler à la fin de la création d'une nouvelle population
