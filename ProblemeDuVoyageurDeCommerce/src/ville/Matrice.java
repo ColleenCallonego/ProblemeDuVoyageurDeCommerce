@@ -31,7 +31,8 @@ public class Matrice {
       Double length = 0.0;
       String last = begin;
       indexes.add(begin);
-      for(int i = 0; i<villes.size(); i++) {
+      int i = 1;
+      while(i<villes.size()) {
           String current = getRandomCity(last, indexes);
           if(i == villes.size()-1) {
             indexes.add(end);
@@ -40,6 +41,7 @@ public class Matrice {
             indexes.add(current);
             length += matrice.get(villes.indexOf(last)).get(villes.indexOf(current));
             last = current;
+            i++;
           }
       }
       return new Chemin(indexes,length);
