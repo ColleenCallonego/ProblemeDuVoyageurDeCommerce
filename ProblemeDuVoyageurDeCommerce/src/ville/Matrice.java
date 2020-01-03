@@ -26,7 +26,7 @@ public class Matrice {
         this.matrice = matrice;
     }
 
-    public Chemin randomWalk(String begin, String end) {
+    public synchronized Chemin randomWalk(String begin, String end) {
       ArrayList<String> indexes = new ArrayList<String>();
       Double length = 0.0;
       String last = begin;
