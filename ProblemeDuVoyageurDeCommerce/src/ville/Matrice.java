@@ -48,7 +48,7 @@ public class Matrice {
     private String getRandomCity(String city, ArrayList<String> indexes){
         Double value = -1.0;
         Integer index = 0;
-        Integer max = matrice.get(villes.indexOf(city)).size()-1;
+        Integer max = villes.size()-1;
         do {
             index = random(0,max);
             value = matrice.get(villes.indexOf(city)).get(index);
