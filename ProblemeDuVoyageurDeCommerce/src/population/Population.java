@@ -23,20 +23,15 @@ public class Population {
 
     public Population(Matrice matrice, String begin, String end, int size) {
         population = new ArrayList<Individu>();
-        Builder builder1 = new Builder(matrice,begin,end,size/4);
-        Builder builder2 = new Builder(matrice,begin,end,size/4);
-        Builder builder3 = new Builder(matrice,begin,end,size/4);
-        Builder builder4 = new Builder(matrice,begin,end,size/4);
-
-        builder1.start();
-        builder2.start();
-        builder3.start();
-        builder4.start();
-        
-        population.addAll(builder1.getIndividus());
-        population.addAll(builder2.getIndividus());
-        population.addAll(builder3.getIndividus());
-        population.addAll(builder4.getIndividus());
+        for(int i=0; i<4; i++) {
+            Builder builder = new Builder(matrice,begin,end,size/4);
+            builder.start();
+            try {
+                builder.join();
+            } catch(InterruptedException e) {
+                population.addAll(builder.getIndividus());
+            }
+        }
     }
 
     /**
