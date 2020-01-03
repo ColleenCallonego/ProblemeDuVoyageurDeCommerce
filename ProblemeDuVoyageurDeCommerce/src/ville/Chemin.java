@@ -17,4 +17,18 @@ public class Chemin {
   public Double getLength() {
     return length;
   }
+
+    public void setVilles(ArrayList<String> villes) {
+        this.villes = villes;
+    }
+
+    public void setLength(Double length) {
+        this.length = length;
+    }
+
+    @Override
+    public String toString() {
+        return "Chemin{" + "villes=" + villes + '}';
+    }
+  
 }

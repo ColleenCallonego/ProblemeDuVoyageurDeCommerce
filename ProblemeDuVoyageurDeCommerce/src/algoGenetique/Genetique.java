@@ -21,7 +21,7 @@ public class Genetique {
     public void lancer(){
         Integer nbFois = 0;
         Individu meilleur = population.meilleur();
-        System.out.println(meilleur.getCities());
+        System.out.println(meilleur.Path().getVilles());
         System.out.println(meilleur.getFitness());
         KMeilleursParents = population.selectionKMeilleur(k);
         population.remplacementTotal(population.creationEnfants());
@@ -30,7 +30,7 @@ public class Genetique {
             KMeilleursParents = population.selectionKMeilleur(k);
             population.remplacementTotal(population.creationEnfants());
             meilleur = population.meilleur();
-            System.out.println(meilleur.getCities());
+            System.out.println(meilleur.Path().getVilles());
             System.out.println(meilleur.getFitness());
             nbFois++;
         }
