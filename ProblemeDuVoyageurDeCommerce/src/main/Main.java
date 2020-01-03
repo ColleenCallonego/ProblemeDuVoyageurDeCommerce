@@ -64,7 +64,7 @@ public class Main {
         taillePopulation = 20;
         population = new Population(distance, villeDepart, villeRetour, taillePopulation);
         System.out.println(population.getPopulation());
-        Genetique g = new Genetique();
+        //Genetique g = new Genetique();
         //g.lancer();
         //new UI(distance.getVilles());
 

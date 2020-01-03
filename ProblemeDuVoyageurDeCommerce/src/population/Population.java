@@ -32,7 +32,7 @@ public class Population {
         builder2.start();
         builder3.start();
         builder4.start();
-
+        
         population.addAll(builder1.getIndividus());
         population.addAll(builder2.getIndividus());
         population.addAll(builder3.getIndividus());

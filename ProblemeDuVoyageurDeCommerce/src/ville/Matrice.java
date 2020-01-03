@@ -34,10 +34,10 @@ public class Matrice {
       int i = 1;
       while(i<villes.size()) {
           String current = getRandomCity(last, indexes);
-          if(i == villes.size()-1) {
+          if(i == villes.size()-2) {
             indexes.add(end);
             length += matrice.get(villes.indexOf(last)).get(villes.indexOf(end));
-            i++;
+            break;
           } else if(!current.equals(end)) {
             indexes.add(current);
             length += matrice.get(villes.indexOf(last)).get(villes.indexOf(current));
