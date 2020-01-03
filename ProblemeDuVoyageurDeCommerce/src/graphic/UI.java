@@ -24,7 +24,6 @@ import ville.Matrice;
  */
 public class UI extends JPanel{
     
-    public static Matrice distance;
 
     public UI(ArrayList<String> listVilles){
     //initialisation de la framePrincipale

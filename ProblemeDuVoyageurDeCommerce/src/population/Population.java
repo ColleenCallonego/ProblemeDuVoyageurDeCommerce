@@ -2,7 +2,6 @@ package population;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 import static main.Main.KMeilleursParents;
 import static main.Main.distance;
 import static main.Main.taillePopulation;
@@ -98,14 +97,14 @@ public class Population {
 	villesEnfant2 = indi2part1;
 	villesEnfant2.addAll(indi1part2);
         Individu enfant2 = new Individu(new Chemin(villesEnfant2, Individu.calculFitness(villesEnfant2)), Individu.calculFitness(villesEnfant2));
-            if (false){//PAS BONNE CONDITION, AIDEZ MOI POUR FAIRE LA PROBA DE MUTATION
+            if (Math.random() <= tauxMutation){ //PAS BONNE CONDITON, AIDEZ MOI
                 enfant1.mutation();
             }
-		enfants.add(enfant1);
-            if (false){//PAS BONNE CONDITION, AIDEZ MOI POUR FAIRE LA PROBA DE MUTATION
+            enfants.add(enfant1);
+            if (Math.random() <= tauxMutation){ //PAS BONNE CONDITON, AIDEZ MOI
                 enfant2.mutation();
             }
-		enfants.add(enfant2);
+            enfants.add(enfant2);
     }
     
     public ArrayList<String> partieArrayList(Integer pos1, Integer pos2, ArrayList<String> a){
