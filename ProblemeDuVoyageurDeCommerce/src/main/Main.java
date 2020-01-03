@@ -23,13 +23,13 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         Matrice distance = Lecture.creationMatrice();
-        villeDepart = distance.getVilles().get(0);
+        /*villeDepart = distance.getVilles().get(0);
         villeRetour = distance.getVilles().get(distance.getVilles().size()-1);
         taillePopulation = 1000;
         population = new Population();
         Genetique g = new Genetique();
-        g.lancer();
-        //new UI(distance.getVilles());
+        g.lancer();*/
+        new UI(distance.getVilles());
     }
 
 }
