@@ -1,7 +1,7 @@
 package algoGenetique;
 
 import static main.Main.k;
-import static main.Main.nbGeneration;
+import static main.Main.nbGenerationSeconde;
 import static main.Main.population;
 import static main.Main.KMeilleursParents;
 import population.Individu;
@@ -26,7 +26,7 @@ public class Genetique {
         KMeilleursParents = population.selectionKMeilleur(k);
         population.remplacementTotal(population.creationEnfants());
         nbFois++;
-        while (nbFois != nbGeneration){
+        while (nbFois != nbGenerationSeconde){
             KMeilleursParents = population.selectionKMeilleur(k);
             population.remplacementTotal(population.creationEnfants());
             meilleur = population.meilleur();

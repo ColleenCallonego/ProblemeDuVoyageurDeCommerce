@@ -20,7 +20,7 @@ public class Main {
     public static Double tauxMutation;
     public static Integer k;
     public static ArrayList<Individu> KMeilleursParents;
-    public static Integer nbGeneration;
+    public static Integer nbGenerationSeconde;
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         taillePopulation = 3;
