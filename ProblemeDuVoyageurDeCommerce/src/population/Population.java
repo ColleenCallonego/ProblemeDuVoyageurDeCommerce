@@ -102,7 +102,7 @@ public class Population {
             }
             enfants.add(enfant1);
             if (Math.random() <= tauxMutation){ //PAS BONNE CONDITON, AIDEZ MOI
-                enfant2.mutation();
+               enfant2.mutation();
             }
             enfants.add(enfant2);
     }

@@ -59,7 +59,6 @@ public class Individu implements Comparable<Individu>{
         Double copieFitness = fitness;
         Random r = new Random();
         Individu copieIndividu = this;
-        System.out.println(distance.getVilles().size());
         Integer nbAlea1 = r.nextInt(path.getVilles().size() - 2) + 1;
         Integer nbAlea2 = r.nextInt(path.getVilles().size() - 2) + 1;
         /*int nbAlea1 = (int) (Math.random()*((distance.getVilles().size() - 1) - 1)); //il ne faut pas changer la ville de départ et de retour
