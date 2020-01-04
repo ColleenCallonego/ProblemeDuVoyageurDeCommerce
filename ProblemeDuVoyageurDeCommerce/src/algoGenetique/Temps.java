@@ -8,14 +8,14 @@ import static main.Main.g;
 public class Temps extends Thread{
     Timer minuteur;
     Tache t;
-    int secondes;
-    
+    long secondes;
+
     public Temps (int secondes){
         minuteur = new Timer();
         t = new Tache();
         this.secondes = secondes;
     }
-    
+
     public void run(){
         minuteur.schedule(t,0, secondes*1000);
         minuteur.cancel();
