@@ -30,5 +30,4 @@ public class Chemin {
     public String toString() {
         return "Chemin{" + "villes=" + villes + '}';
     }
-  
 }

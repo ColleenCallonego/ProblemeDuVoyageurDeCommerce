@@ -37,7 +37,7 @@ public class UI extends JPanel{
     public static String villeRetour;
     public static Integer taillePopulation;
     public static Integer k;
-    public static Integer nbTournoi;
+    public static Integer nbITournoi;
     public static Double tauxMutation;
     public static Integer nbGenerationSeconde;
     public static String stratSelection;
@@ -316,7 +316,7 @@ public class UI extends JPanel{
                 nbGenerationSeconde = Integer.parseInt(textPara4.getText());
             }
             if (!textPara5.getText().isEmpty()){
-                nbTournoi = Integer.parseInt(textPara5.getText());
+                nbITournoi = Integer.parseInt(textPara5.getText());
             }
             stratSelection = (String) choixStratSelection.getSelectedItem();
             stratRecombinaison = (String) choixStratRecombinaison.getSelectedItem();
@@ -324,7 +324,7 @@ public class UI extends JPanel{
             tempsCalcul = (String) choixTempsCalcul.getSelectedItem();
             
             //Vérification avant lancement
-            if (taillePopulation!=null && k!=null && tauxMutation!=null && nbGenerationSeconde!=null && stratSelection!="Stratégie de Selection" && stratRecombinaison!="Stratégie de recombinaison" && stratRemplissage!="Stratégie de Remplissage" && tempsCalcul!="Temps de calcul" && nbTournoi!=null && (nbTournoi*k <= taillePopulation)){
+            if (taillePopulation!=null && k!=null && tauxMutation!=null && nbGenerationSeconde!=null && stratSelection!="Stratégie de Selection" && stratRecombinaison!="Stratégie de recombinaison" && stratRemplissage!="Stratégie de Remplissage" && tempsCalcul!="Temps de calcul" && nbITournoi!=null && (nbITournoi*k <= taillePopulation)){
                 //LANCER LE PROGRAMME
                 XYSeries series = new XYSeries("Fitness");
                 series.add(1, 10000);
@@ -344,7 +344,6 @@ public class UI extends JPanel{
         }
     });
     
-    
     //Action du bouton STOP. Arrête l'algo si en mode "Illimité"
     boutonStop.addActionListener(new ActionListener() {
         @Override
@@ -354,19 +353,7 @@ public class UI extends JPanel{
             }
         }
     });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     framePricipale.setVisible(true);
     }
 }

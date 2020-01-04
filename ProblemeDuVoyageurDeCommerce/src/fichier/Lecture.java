@@ -24,14 +24,14 @@ public class Lecture {
      * @throws IOException
      */
     public static Matrice creationMatrice() throws FileNotFoundException, IOException{
-        
+
         //choix du fichier
         FileSystemView vueSysteme = FileSystemView.getFileSystemView();
         File defaut = vueSysteme.getDefaultDirectory();
         JFileChooser choixFichier = new JFileChooser(defaut);
         choixFichier.showOpenDialog(null);
         String openFilePath = choixFichier.getSelectedFile().getAbsoluteFile().getAbsolutePath();
-        
+
         //Ouverture du fichier json
         try{
             FileInputStream f = new FileInputStream(openFilePath);
@@ -75,7 +75,7 @@ public class Lecture {
         catch(IOException ex){
             JOptionPane MessageErreurFichier = new JOptionPane();
             MessageErreurFichier.showMessageDialog(null, "Message d'erreur", "Erreur à l'ouverture du fichier", JOptionPane.ERROR_MESSAGE);
-            System.exit(0); 
+            System.exit(0);
         }
         return null;
     }
