@@ -10,7 +10,7 @@ public class Temps extends Thread{
     Tache t;
     long secondes;
 
-    public Temps (int secondes){
+    public Temps (long secondes){
         minuteur = new Timer();
         t = new Tache();
         this.secondes = secondes;
