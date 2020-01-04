@@ -26,6 +26,14 @@ public class Matrice {
         this.matrice = matrice;
     }
 
+    /**
+     * Crée un chemin aléatoire commençant par begin et finissant par end,
+     * passant par toutes les villes une et une seule fois, de façon
+     * parfaitement aléatoire.
+     * @param  begin Début du chemin
+     * @param  end   Fin du chemin
+     * @return       Un chemin passant par toutes les villes de façon aléatoire
+     */
     public Chemin randomWalk(String begin, String end) {
       ArrayList<String> indexes = new ArrayList<String>();
       Double length = 0.0;
@@ -53,6 +61,14 @@ public class Matrice {
       return new Chemin(indexes,length);
     }
 
+    /**
+     * Retourne une ville aléatoire parmis les villes relié à celle passée en
+     * paramètre. Cet algorithme vérifie que la ville sélectionnée n'a pas
+     * déjà été visitée.
+     * @param  city    Dernière ville visitée
+     * @param  indexes Toutes les villes déjà passées
+     * @return Une ville aléatoire respectant les conditions ci-dessus
+     */
     private String getRandomCity(String city, ArrayList<String> indexes){
         Double value = -1.0;
         Integer index = 0;
@@ -60,10 +76,16 @@ public class Matrice {
         do {
             index = random(0,max);
             value = matrice.get(villes.indexOf(city)).get(index);
-        } while((value==-1 || value==0 || indexes.contains(villes.get(index))));
+        } while((value==0 || indexes.contains(villes.get(index))));
         return villes.get(index);
     }
 
+    /**
+     * Calcule un entier aléatoire entre un minimum inclusif et un maximum exclusif
+     * @param  min minimum
+     * @param  max maximum
+     * @return     entier aléatoire entre min (inclusif) et max (exclusif)
+     */
     private int random(int min, int max) {
         return (int)(Math.random() * max + min);
     }

@@ -22,9 +22,12 @@ public class Builder extends Thread {
             individus = new ArrayList<Individu>();
     }
 
+    /**
+     * Build la population pour l'algorithme génétique
+     */
     @Override
     public void run() {
-        ArrayList<Individu> ajout = new ArrayList();
+        ArrayList<Individu> ajout = new ArrayList<Individu>();
             for(int i=0; i<number; i++) {
                     Chemin ah = matrice.randomWalk(begin,end);
                     individus.add(new Individu(ah,ah.getLength()));
@@ -34,6 +37,10 @@ public class Builder extends Thread {
             population.setPopulation(ajout);
     }
 
+    /**
+     * retourne les individus créés.
+     * @return Liste d'Individus
+     */
     public ArrayList<Individu> getIndividus() {
             return individus;
     }

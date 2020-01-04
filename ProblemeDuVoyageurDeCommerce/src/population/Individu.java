@@ -23,18 +23,18 @@ public class Individu implements Comparable<Individu>{
     public String toString() {
         return "Individu{" + "path=" + path + ", fitness=" + fitness + '}';
     }
-    
+
     /**
      *Méthode pour parser le chemin en String.
-     * @return
+     * @return Le chemin en tant que String.
      */
     public String parsPathToString(){
         return "" + path.getVilles();
     }
-    
+
     /**
      *Méthode pour parse la fitness en String.
-     * @return
+     * @return la fitness en tant que String.
      */
     public String parsFitnessToString(){
         return "" + fitness;
