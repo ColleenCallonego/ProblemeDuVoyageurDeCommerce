@@ -2,6 +2,9 @@ package algoGenetique;
 
 import static graphic.UI.k;
 import static graphic.UI.nbGenerationSeconde;
+import static graphic.UI.plot;
+import static graphic.UI.solutionChemin;
+import static graphic.UI.solutionFitness;
 import static graphic.UI.stratRecombinaison;
 import static graphic.UI.stratRemplissage;
 import static graphic.UI.stratSelection;
@@ -11,6 +14,8 @@ import static graphic.UI.villeDepart;
 import static graphic.UI.villeRetour;
 import static java.lang.Thread.sleep;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 import static main.Main.distance;
 import org.apache.commons.lang.time.StopWatch;
@@ -24,12 +29,25 @@ import population.Population;
 /**
  *Classe pour lancer l'algo génétique.
  */
-public class Genetique {
+public class Genetique extends Thread{
     public static ArrayList<Individu> KMeilleursParents;
     public static Population population;
     private Boolean b;
     
-    public Genetique() throws InterruptedException {
+    @Override
+    public void run(){
+        try {
+            lancer (plot, solutionChemin, solutionFitness);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Genetique.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     *Constucteur de Genetique.
+     * @throws InterruptedException
+     */
+    public Genetique() throws InterruptedException{
         population = new Population();
         population.creerPopulation(distance, villeDepart, villeRetour, taillePopulation);
         sleep(500);
@@ -37,10 +55,18 @@ public class Genetique {
         b = true;
     }
 
+    /**
+     *Getteur du booléen.
+     * @return
+     */
     public Boolean getB() {
         return b;
     }
 
+    /**
+     *Setteur du booléen.
+     * @param b
+     */
     public void setB(Boolean b) {
         this.b = b;
     }
@@ -54,14 +80,13 @@ public class Genetique {
         Double nbFois = 0.0; 
         int nbFoisI = 0;
         Individu meilleur = population.meilleur();
-        System.out.println(meilleur.Path().getVilles());
-        System.out.println(meilleur.getFitness());
         XYSeries series = new XYSeries("Fitness");
         series.add(nbFois, meilleur.getFitness());
         XYDataset dataset = new XYSeriesCollection(series);
         plot.setDataset(dataset);
+        solutionChemin.setText(meilleur.parsPathToString());
+        solutionFitness.setText(meilleur.parsFitnessToString());
         if (tempsCalcul.equals("Par génération")){
-            System.out.println("MERDE");
             while (nbFoisI != nbGenerationSeconde){
                 if (stratSelection.equals("Elitiste")){
                     KMeilleursParents = population.selectionKMeilleur(k);
@@ -78,12 +103,11 @@ public class Genetique {
                 nbFois++;
                 nbFoisI++;
                 meilleur = population.meilleur();
-                
-        System.out.println(meilleur.Path().getVilles());
-        System.out.println(meilleur.getFitness());
                 series.add(nbFois, meilleur.getFitness());
                 dataset = new XYSeriesCollection(series);
                 plot.setDataset(dataset);
+                solutionChemin.setText(meilleur.parsPathToString());
+                solutionFitness.setText(meilleur.parsFitnessToString());
             }
         }
         else if (tempsCalcul.equals("Par seconde")){
@@ -106,6 +130,8 @@ public class Genetique {
                 series.add(nbFois, meilleur.getFitness());
                 dataset = new XYSeriesCollection(series);
                 plot.setDataset(dataset);
+                solutionChemin.setText(meilleur.parsPathToString());
+                solutionFitness.setText(meilleur.parsFitnessToString());
             }
         }
         else{
@@ -128,7 +154,9 @@ public class Genetique {
                 series.add(nbFois, meilleur.getFitness());
                 dataset = new XYSeriesCollection(series);
                 plot.setDataset(dataset);
-                sleep(3000);
+                solutionChemin.setText(meilleur.parsPathToString());
+                solutionFitness.setText(meilleur.parsFitnessToString());
+                sleep(1500);
             }
         }
         s.stop();

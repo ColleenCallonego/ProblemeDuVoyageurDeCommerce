@@ -11,7 +11,7 @@ public class Individu implements Comparable<Individu>{
 
     /**
      *Méthode pour créer un individu lorsqu'on a déjà le chemin et la fitness.
-     * @param cities Chemin des différentes villes.
+     * @param path Chemin des différentes villes.
      * @param fitness Ditance du chemin.
      */
     public Individu(Chemin path, Double fitness){
@@ -24,10 +24,18 @@ public class Individu implements Comparable<Individu>{
         return "Individu{" + "path=" + path + ", fitness=" + fitness + '}';
     }
     
+    /**
+     *Méthode pour parser le chemin en String.
+     * @return
+     */
     public String parsPathToString(){
         return "" + path.getVilles();
     }
     
+    /**
+     *Méthode pour parse la fitness en String.
+     * @return
+     */
     public String parsFitnessToString(){
         return "" + fitness;
     }
@@ -62,7 +70,6 @@ public class Individu implements Comparable<Individu>{
      */
     public void mutation(){
         ArrayList<String> copieVilles = path.getVilles();
-        Double copieFitness = fitness;
         Random r = new Random();
         Individu copieIndividu = this;
         Integer nbAlea1 = r.nextInt(path.getVilles().size() - 2) + 1;

@@ -28,9 +28,6 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.chart.title.TextTitle;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 /**
  *
  */
@@ -48,6 +45,9 @@ public class UI extends JPanel{
     public static String stratRemplissage;
     public static String tempsCalcul;
     public static Genetique g;
+    public static XYPlot plot; 
+    public static JTextField solutionChemin;
+    public static JTextField solutionFitness;
 
     /**
      * Création de l'interface graphique de notre programme. Une fenêtre où se situent deux panel le premier pour rentrer les différents paramètres de notre problème, le deuxième pour afficher la courbe et le résultat de chaque génération en temps réel.
@@ -199,17 +199,17 @@ public class UI extends JPanel{
         NumberAxis domain = new NumberAxis("Générations");
      	NumberAxis range = new NumberAxis("Fitness en Km");
         XYItemRenderer renderer = new XYLineAndShapeRenderer(true, false);
-        XYPlot plot = new XYPlot(null, domain, range, renderer);
+        plot = new XYPlot(null, domain, range, renderer);
         JFreeChart chart = new JFreeChart(plot);
         chart.setTitle(new TextTitle("Evolution de la Fitness"));
         ChartPanel panelCourbe = new ChartPanel(chart);
         //panelCourbe.setVisible(false);
         //plot.setDataset(dataset);
         
-        JTextField solutionChemin = new JTextField();
+        solutionChemin = new JTextField();
         solutionChemin.setEditable(false);
         solutionChemin.setHorizontalAlignment(JTextField.CENTER);
-        JTextField solutionFitness = new JTextField();
+        solutionFitness = new JTextField();
         solutionFitness.setEditable(false);
         solutionFitness.setHorizontalAlignment(JTextField.CENTER);
     
@@ -331,7 +331,7 @@ public class UI extends JPanel{
             if (taillePopulation!=null && k!=null && tauxMutation!=null && nbGenerationSeconde!=null && stratSelection!="Stratégie de Selection" && stratRecombinaison!="Stratégie de recombinaison" && stratRemplissage!="Stratégie de Remplissage" && tempsCalcul!="Temps de calcul" && nbITournoi!=null && (nbITournoi*k <= taillePopulation)){
                 try {
                     g = new Genetique();
-                    g.lancer(plot, solutionChemin, solutionFitness);
+                    g.start();
                 } catch (InterruptedException ex) {
                     Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
                 }

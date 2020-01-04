@@ -67,6 +67,11 @@ public class Population {
         this.triePopulation();
     }
     
+    /**
+     *Méthode pour trier une population en fonction par rapport à la fitness.
+     * Par ordre croissant. A appeller chaque fois qu'on modifie la population.
+     * 
+     */
     public void triePopulation(){//Méthode à appeler à la fin de la création d'une nouvelle population
         Collections.sort(population);
     }
@@ -121,7 +126,7 @@ public class Population {
                 if (stratRecombinaison.equals("Recombinaison simple")){
                     recombinaisonSimple(population.get(i), population.get(j), enfants);
                 }
-                else { //pour recombinaison avec enjambement
+                else { //pour recombinaison avec enjambement PAS FAIT
                     
                 }
             }
@@ -137,19 +142,20 @@ public class Population {
      * @param enfants ArrayList d'individu qui va contenir les enfants.
      */
     public void recombinaisonSimple(Individu indi1, Individu indi2, ArrayList<Individu> enfants){
-	int milieu = indi1.getPath().getVilles().size()/2; //endroit où il faut couper les individus pour les recombiner
+        int max = indi1.getPath().getVilles().size() - 2;
+        int coupe = 1 + (int)(Math.random() * ((max - 1) + 1));//endroit où il faut couper les individus pour les recombiner
 	ArrayList<String> indi1part1 = new ArrayList<String>();
-        indi1part1 = partieArrayList(0, milieu, indi1.getPath().getVilles());
+        indi1part1 = partieArrayList(0, coupe, indi1.getPath().getVilles());
 	ArrayList<String> indi1part2 = new ArrayList<String>();
-        indi1part2 = partieArrayList(milieu, indi1.getPath().getVilles().size(), indi1.getPath().getVilles());
+        indi1part2 = partieArrayList(coupe, indi1.getPath().getVilles().size(), indi1.getPath().getVilles());
 	ArrayList<String> indi2part1 = new ArrayList<String>();
-	indi2part1 = partieArrayList(0, milieu, indi2.getPath().getVilles());
+	indi2part1 = partieArrayList(0, coupe, indi2.getPath().getVilles());
 	ArrayList<String> indi2part2 = new ArrayList<String> ();
-	indi2part2 = partieArrayList(milieu, indi2.getPath().getVilles().size(), indi2.getPath().getVilles());
+	indi2part2 = partieArrayList(coupe, indi2.getPath().getVilles().size(), indi2.getPath().getVilles());
 	ArrayList<String> villesEnfant1 = new ArrayList<String>();
 	villesEnfant1 = indi1part1;
-        verifChemin(villesEnfant1);
 	villesEnfant1.addAll(indi2part2);
+        verifChemin(villesEnfant1);
         Individu enfant1 = new Individu(new Chemin(villesEnfant1, Individu.calculFitness(villesEnfant1)), Individu.calculFitness(villesEnfant1));
         ArrayList<String> villesEnfant2 = new ArrayList<String>();
 	villesEnfant2 = indi2part1;
@@ -177,7 +183,7 @@ public class Population {
         ArrayList<String> distanceVilleCopie = (ArrayList<String>)distance.getVilles().clone();
         distanceVilleCopie.remove(villeDepart);
         distanceVilleCopie.remove(villeRetour);
-        for(int i = 1; i < distanceVilleCopie.size(); i++){
+        for(int i = 0; i < distanceVilleCopie.size(); i++){
             if (occurence(villes, distanceVilleCopie.get(i)) == 2){
                 villes.remove(villes.lastIndexOf(distanceVilleCopie.get(i)));
             }
