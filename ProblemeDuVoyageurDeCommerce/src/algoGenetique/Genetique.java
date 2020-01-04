@@ -4,6 +4,7 @@ import static main.Main.k;
 import static main.Main.nbGenerationSeconde;
 import static main.Main.population;
 import static main.Main.KMeilleursParents;
+import org.apache.commons.lang.time.StopWatch;
 import population.Individu;
 
 /**
@@ -28,6 +29,8 @@ public class Genetique {
      *Méthode pour lancer l'algo génétique.
      */
     public void lancer(){
+        StopWatch s = new StopWatch();
+        s.start();
         Integer nbFois = 0; 
         Individu meilleur = population.meilleur();
         System.out.println(meilleur.Path().getVilles());
@@ -37,7 +40,7 @@ public class Genetique {
         population.remplacementTotal(population.creationEnfants());
         nbFois++;
         //while (nbFois != nbGenerationSeconde){
-        while (b){
+        while (s.getTime() < (long)nbGenerationSeconde*1000){
             //KMeilleursParents = population.selectionKMeilleur(k);
             KMeilleursParents = population.selectionTournoi();
             population.remplacementTotal(population.creationEnfants());
@@ -46,5 +49,6 @@ public class Genetique {
             System.out.println(meilleur.getFitness());
             nbFois++;
         }
+        s.stop();
     }
 }

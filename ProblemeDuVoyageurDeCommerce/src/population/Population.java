@@ -83,6 +83,10 @@ public class Population {
 	return KMeilleur;
     }
 
+    /**
+     *Méthode de sélection par tournoi.
+     * @return L'ArrayList des Individus qui ont gagnés les tournois.
+     */
     public ArrayList<Individu> selectionTournoi(){
         ArrayList<Individu> copiePop = (ArrayList<Individu>)population.clone();
         ArrayList<Individu> kMeilleur = new ArrayList<Individu>();
@@ -158,6 +162,11 @@ public class Population {
         }
     }
 
+    /**
+     *Méthode pour vérifier qu'un chemin est bien conforme.
+     * i.e. qu'il n'y a pas de double et qu'il ne manque pas de ville.
+     * @param villes Le chemin à vérifier.
+     */
     public void verifChemin(ArrayList<String> villes){
         ArrayList<String> distanceVilleCopie = (ArrayList<String>)distance.getVilles().clone();
         distanceVilleCopie.remove(villeDepart);
@@ -172,6 +181,12 @@ public class Population {
         }
     }
     
+    /**
+     *Méthode pour connaitre le nombre d'occurence d'une ville dans une ArrayList.
+     * @param villes L'ArrayList des villes.
+     * @param ville La ville dont on veut savoir le nombre d'occurence.
+     * @return Le nombre d'occurence.
+     */
     public Integer occurence(ArrayList<String> villes, String ville){
         Integer occur = 0;
         for(int i = 1; i < villes.size() - 1; i++){
@@ -182,6 +197,13 @@ public class Population {
         return occur;
     }
     
+    /**
+     *Méthode pour avoir une partie d'une ArrayList.
+     * @param pos1 Postion de début.
+     * @param pos2 Postion de fin + 1.
+     * @param a ArrayList dont on veut avoir une partie.
+     * @return La partie de l'ArrayList.
+     */
     public ArrayList<String> partieArrayList(Integer pos1, Integer pos2, ArrayList<String> a){
         ArrayList<String> partie = new ArrayList<String>();
         for (int i = pos1; i < pos2; i++){

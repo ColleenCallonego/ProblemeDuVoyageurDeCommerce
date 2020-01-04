@@ -71,6 +71,11 @@ public class Individu implements Comparable<Individu>{
         this.fitness = calculFitness(this.path.getVilles()); //on modifie la fitness de l'individu car ce n'est plus le même chemin
     }
 
+    /**
+     *Méthode pour calculer la fitness d'une ArrayList.
+     * @param villes ArrayList de villes.
+     * @return La fitness de l'ArrayList.
+     */
     public static Double calculFitness(ArrayList<String> villes){
         Double kilometre = 0.0;
         for(int i = 0; i < villes.size()- 1; i++){
@@ -79,6 +84,11 @@ public class Individu implements Comparable<Individu>{
         return kilometre;
     }
 
+    /**
+     *Méthode pour comparer deux individus.
+     * @param t Un individu à comparer avec celui qui appelle la méthode.
+     * @return -1 si t plus grand, 0 si egal et 1 si t plus petit.
+     */
     @Override
     public int compareTo(Individu t) {
         Double d = this.fitness;
