@@ -1,6 +1,5 @@
 package main;
 
-import algoGenetique.Genetique;
 import fichier.Lecture;
 import graphic.UI;
 import ville.Matrice;
@@ -9,7 +8,6 @@ import java.io.IOException;
 
 public class Main {
     public static Matrice distance;
-    public static Genetique g;
     
     
     public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
@@ -21,14 +19,12 @@ public class Main {
         tauxMutation = 0.05;
         villeDepart = distance.getVilles().get(9);
         villeRetour = distance.getVilles().get(15);
-        taillePopulation = 100;
+        taillePopulation = 100;  
         population = new Population(); 
         population.creerPopulation(distance, villeDepart, villeRetour, taillePopulation);
-        sleep(500);
-        population.verifPopulation();
-        g = new Genetique();
+        sleep(500);55
+        population.verifPopulation();*/
         
-        g.lancer();*/
         
         new UI(distance.getVilles());
     }

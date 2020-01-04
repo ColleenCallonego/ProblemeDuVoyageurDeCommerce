@@ -3,6 +3,7 @@ package population;
 import static algoGenetique.Genetique.KMeilleursParents;
 import static graphic.UI.k;
 import static graphic.UI.nbITournoi;
+import static graphic.UI.stratRecombinaison;
 import static graphic.UI.taillePopulation;
 import static graphic.UI.tauxMutation;
 import static graphic.UI.villeDepart;
@@ -117,7 +118,12 @@ public class Population {
 	ArrayList<Individu> enfants = new ArrayList<Individu>();
 	for (int i = 0; i < population.size(); i++){
             for (int j = i + 1; j < population.size(); j++){
-                recombinaisonSimple(population.get(i), population.get(j), enfants);
+                if (stratRecombinaison.equals("Recombinaison simple")){
+                    recombinaisonSimple(population.get(i), population.get(j), enfants);
+                }
+                else { //pour recombinaison avec enjambement
+                    
+                }
             }
 	}
         return enfants;

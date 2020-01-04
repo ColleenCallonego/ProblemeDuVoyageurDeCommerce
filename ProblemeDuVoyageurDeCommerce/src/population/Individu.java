@@ -23,7 +23,14 @@ public class Individu implements Comparable<Individu>{
     public String toString() {
         return "Individu{" + "path=" + path + ", fitness=" + fitness + '}';
     }
-
+    
+    public String parsPathToString(){
+        return "" + path.getVilles();
+    }
+    
+    public String parsFitnessToString(){
+        return "" + fitness;
+    }
 
     public Individu(String begin, String end, Matrice datas) {
         path = datas.randomWalk(begin,end);

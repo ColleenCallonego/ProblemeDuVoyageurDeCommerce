@@ -1,5 +1,6 @@
 package graphic;
 
+import algoGenetique.Genetique;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -9,6 +10,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -44,13 +47,14 @@ public class UI extends JPanel{
     public static String stratRecombinaison;
     public static String stratRemplissage;
     public static String tempsCalcul;
+    public static Genetique g;
 
     /**
      * Création de l'interface graphique de notre programme. Une fenêtre où se situent deux panel le premier pour rentrer les différents paramètres de notre problème, le deuxième pour afficher la courbe et le résultat de chaque génération en temps réel.
      * 
      * @param listVilles list des villes contenues dans le fichier. Permet de remplir les comboBox pour le choix de la ville de départ et de retour
      */
-    public UI(ArrayList<String> listVilles){
+    public UI(ArrayList<String> listVilles) throws InterruptedException{
     //initialisation de la framePrincipale
     JFrame framePricipale = new JFrame("Problème du voyageur de commerce");
     framePricipale.setResizable(false);
@@ -180,7 +184,7 @@ public class UI extends JPanel{
         JComboBox choixStratSelection = new JComboBox(listStratSelection);
         String[] listStratRecombinaison = new String[]{"Stratégie de recombinaison","Recombinaison simple"};
         JComboBox choixStratRecombinaison = new JComboBox(listStratRecombinaison);
-        String[] listTempsCalcul = new String[]{"Temps de calcul","Par génération", "Par secondes", "Illimité"};
+        String[] listTempsCalcul = new String[]{"Temps de calcul","Par génération", "Par seconde", "Illimité"};
         JComboBox choixTempsCalcul = new JComboBox(listTempsCalcul);
         String[] listStratRemplissage = new String[]{"Stratégie de Remplissage", "Parents et enfants", "Enfants uniquement"};
         JComboBox choixRemplissage = new JComboBox(listStratRemplissage);
@@ -325,16 +329,12 @@ public class UI extends JPanel{
             
             //Vérification avant lancement
             if (taillePopulation!=null && k!=null && tauxMutation!=null && nbGenerationSeconde!=null && stratSelection!="Stratégie de Selection" && stratRecombinaison!="Stratégie de recombinaison" && stratRemplissage!="Stratégie de Remplissage" && tempsCalcul!="Temps de calcul" && nbITournoi!=null && (nbITournoi*k <= taillePopulation)){
-                //LANCER LE PROGRAMME
-                XYSeries series = new XYSeries("Fitness");
-                series.add(1, 10000);
-                series.add(2, 9000);
-                series.add(3, 8000);
-                series.add(4, 7000);
-                series.add(5, 7500);
-                series.add(6, 6500);
-                XYDataset dataset = new XYSeriesCollection(series);
-                plot.setDataset(dataset);//si il faut le mettre dans le lancer() alors que le plot a passer en parametre
+                try {
+                    g = new Genetique();
+                    g.lancer(plot, solutionChemin, solutionFitness);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             else{
                 //message d'erreur sinon
@@ -349,7 +349,7 @@ public class UI extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             if (tempsCalcul=="Illimité"){
-                System.out.println("COCO");
+                g.setB(false);
             }
         }
     });
