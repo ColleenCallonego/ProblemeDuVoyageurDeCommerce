@@ -19,6 +19,10 @@ public class Individu implements Comparable<Individu>{
         this.fitness = fitness;
     }
 
+    /**
+     *ToString d'Individu.
+     * @return
+     */
     @Override
     public String toString() {
         return "Individu{" + "path=" + path + ", fitness=" + fitness + '}';
@@ -40,11 +44,21 @@ public class Individu implements Comparable<Individu>{
         return "" + fitness;
     }
 
+    /**
+     *Constructeur d'Individu.
+     * @param begin Ville de départ.
+     * @param end Ville de retour.
+     * @param datas Matrice des distances entre villes.
+     */
     public Individu(String begin, String end, Matrice datas) {
         path = datas.randomWalk(begin,end);
         fitness = path.getLength();
     }
 
+    /**
+     *Getteur du chemin.
+     * @return Une ArrayList de String contenant les villes du chemin.
+     */
     public Chemin getPath() {
         return path;
     }

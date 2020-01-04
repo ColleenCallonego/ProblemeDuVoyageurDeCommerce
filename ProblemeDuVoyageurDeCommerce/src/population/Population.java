@@ -24,6 +24,13 @@ public class Population {
         population = new ArrayList<Individu>();
     }
 
+    /**
+     *Méthode pour créer une population.
+     * @param matrice Matrice des distances entre villes.
+     * @param begin Ville de départ.
+     * @param end Ville de retour.
+     * @param size Taille de la population.
+     */
     public void creerPopulation(Matrice matrice, String begin, String end, int size) {
         for(int i=0; i<4; i++) {
             if (i != 3){
@@ -53,10 +60,17 @@ public class Population {
         return population;
     }
 
+    /**
+     *Setteur de Population.
+     * @param population
+     */
     public void setPopulation(ArrayList<Individu> population) {
         this.population = population;
     }
 
+    /**
+     *Méthode pour vérifier qu'il y a le bon nombre d'Individu dans la population.
+     */
     public void verifPopulation(){
         if (population.size() > taillePopulation){
             Integer trop = population.size() - taillePopulation;
