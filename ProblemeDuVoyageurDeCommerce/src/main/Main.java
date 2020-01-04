@@ -13,21 +13,16 @@ import ville.Chemin;
 
 public class Main {
     public static Matrice distance;
-    public static String villeDepart;
-    public static String villeRetour;
-    public static Integer taillePopulation;
     public static Population population;
-    public static Double tauxMutation;
-    public static Integer k;
     public static ArrayList<Individu> KMeilleursParents;
-    public static Integer nbGeneration;
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        taillePopulation = 3;
+        distance = Lecture.creationMatrice();
+        
+        /*taillePopulation = 3;
         k = 2;
         villeDepart = "Nancy";
         villeRetour = "Lille";
-        Matrice distance = Lecture.creationMatrice();
         ArrayList<String> a = new ArrayList<String>();
         a.add("Nancy");
         a.add("Paris");
@@ -56,15 +51,16 @@ public class Main {
         KMeilleursParents = p.selectionKMeilleur(2);
         System.out.println(p.creationEnfants());
         p.remplacementPartiel(p.creationEnfants());
-        System.out.println(p.getPopulation());
+        System.out.println(p.getPopulation());*/
+        
         /*villeDepart = distance.getVilles().get(0);
         villeRetour = distance.getVilles().get(distance.getVilles().size()-1);
         taillePopulation = 1000;
         population = new Population();
         Genetique g = new Genetique();
         g.lancer();*/
-        //new UI(distance.getVilles());
-
+        new UI(distance.getVilles());
+        //kjjsfkjh
     }
 
 }
