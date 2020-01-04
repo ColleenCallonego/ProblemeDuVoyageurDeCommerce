@@ -1,6 +1,7 @@
 package main;
 
 import algoGenetique.Genetique;
+import algoGenetique.Temps;
 import fichier.Lecture;
 import graphic.UI;
 import ville.Matrice;
@@ -23,6 +24,8 @@ public class Main {
     public static ArrayList<Individu> KMeilleursParents;
     public static Integer nbGenerationSeconde;
     public static Integer nbIndividuTournoi;
+    public static Genetique g;
+    
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
         /*tauxMutation = 0.5;
@@ -60,7 +63,8 @@ public class Main {
         System.out.println(p.creationEnfants());
         p.remplacementPartiel(p.creationEnfants());
         System.out.println(p.getPopulation());*/
-        nbGenerationSeconde = 100;
+        nbGenerationSeconde = 2;
+        System.out.println(nbGenerationSeconde);
         k = 20;
         nbIndividuTournoi = 4;
         tauxMutation = 0.05;
@@ -71,7 +75,9 @@ public class Main {
         population.creerPopulation(distance, villeDepart, villeRetour, taillePopulation);
         sleep(500);
         population.verifPopulation();
-        Genetique g = new Genetique();
+        g = new Genetique();
+        Temps t = new Temps(nbGenerationSeconde);
+        t.start();
         g.lancer();
         //new UI(distance.getVilles());
 

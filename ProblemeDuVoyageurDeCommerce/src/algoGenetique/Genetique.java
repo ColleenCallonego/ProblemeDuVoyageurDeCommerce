@@ -10,9 +10,18 @@ import population.Individu;
  *Classe pour lancer l'algo génétique.
  */
 public class Genetique {
-
+    private Boolean b;
+    
     public Genetique() {
-        
+        b = true;
+    }
+
+    public Boolean getB() {
+        return b;
+    }
+
+    public void setB(Boolean b) {
+        this.b = b;
     }
     
     /**
@@ -27,7 +36,8 @@ public class Genetique {
         KMeilleursParents = population.selectionTournoi();
         population.remplacementTotal(population.creationEnfants());
         nbFois++;
-        while (nbFois != nbGenerationSeconde){
+        //while (nbFois != nbGenerationSeconde){
+        while (b){
             //KMeilleursParents = population.selectionKMeilleur(k);
             KMeilleursParents = population.selectionTournoi();
             population.remplacementTotal(population.creationEnfants());
